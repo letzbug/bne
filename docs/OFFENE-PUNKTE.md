@@ -6,7 +6,8 @@ Stand: 28. Oktober 2026. Sortiert nach dem, was vor einem ersten öffentlichen E
 
 1. **Fachliche Freigabe aller Inhalte durch die BNE-Koordination.** Besonders die Aussagen in den Fäden und im Quiz (Liste mit Grundlagen in docs/KONZEPT.md, Abschnitt 8), die Formulierung der Programme und die Zuordnung zu den Zielgruppen.
 2. **Zustimmung der genannten Angebotsträger**, deren Workshops die Stele hervorhebt: Fairtrade Lëtzebuerg, Fondation Partage Luxembourg, äerdschëff asbl. Mit ihnen auch klären, ob sie Anfragen von Familien und Schulen aus der Stele erwarten können.
-3. **Logo und Markenfarben**: offizielles Logo als SVG und die verbindlichen Farbwerte von der BNE erhalten. Ein Platz für das Logo ist vorbereitet (`assets/brand/`); die Farben stehen als Tokens oben in `css/app.css`.
+3. **Logo und Markenfarben**: Das offizielle Logo ist eingesetzt, seine 17 Farben steuern die Variante BNE Corporate. Noch zu klären: die Hausschrift von bne.lu, ob es verbindliche Hintergrund- und Grautöne gibt, und ob die automatisch erzeugte helle Negativfassung des Logos (für Original Dark) verwendet werden darf.
+3a. **Designentscheidung**: BNE Corporate oder Original Dark als Standard für den Einsatz festlegen; beide sind vollständig.
 4. **Links prüfen**: Die deutsche und englische Fassung der Seite „Agenda 2030 & ODD“ ist nach Sprachmuster gebildet. Alle Links vor jeder neuen Saison öffnen und `checked` in `content.json` aktualisieren.
 5. **Termine der Fresque de la Mobilité** bei äerdschëff erfragen; die Angebotsseite zeigte zuletzt einen Termin vom März 2026.
 6. **Übersetzungen gegenlesen lassen**, idealerweise von Muttersprachlerinnen und Muttersprachlern mit pädagogischem Hintergrund. Die Texte sind bewusst frei formuliert, nicht wortwörtlich übertragen.

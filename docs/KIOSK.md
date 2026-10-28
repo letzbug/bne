@@ -51,7 +51,7 @@ Automatische Anmeldung eines Kiosk-Benutzers, dann per Autostart (zum Beispiel `
 
 ## Drehung und Touch-Kalibrierung
 
-Die Drehung auf Hochformat erfolgt im Betriebssystem, nicht in der Anwendung. Nach dem Drehen prüfen, ob Berührungen an der richtigen Stelle ankommen. Testbild dafür: das Wartungsmenü öffnen (Marke „bne.lu“ oben links 4 Sekunden halten) und die Knöpfe in allen Ecken antippen.
+Die Drehung auf Hochformat erfolgt im Betriebssystem, nicht in der Anwendung. Nach dem Drehen prüfen, ob Berührungen an der richtigen Stelle ankommen. Testbild dafür: das Wartungsmenü öffnen (Logo oben links 4 Sekunden halten) und die Knöpfe in allen Ecken antippen.
 
 ## Offline-Betrieb
 
@@ -61,7 +61,7 @@ Für eine Stele ganz ohne Internet: Schriften einmalig mit `node tools/fetch-fon
 
 ## Wartung
 
-- **Wartungsmenü:** Marke „bne.lu“ 4 Sekunden halten. Zeigt Version, Standort, Datum, Verbindung, Bildwiederholrate, Übersetzungsprüfung; erlaubt Qualitätsstufe, reduzierte Animationen, Neuladen und einen Test der Rückkehr zum Start. Schließt nach einer Minute ohne Bedienung von selbst.
+- **Wartungsmenü:** Logo oben links 4 Sekunden halten. Dort auch Designvariante, „Neue Vorführung“ und der Hinweis „Prototyp“. Zeigt Version, Standort, Datum, Verbindung, Bildwiederholrate, Übersetzungsprüfung; erlaubt Qualitätsstufe, reduzierte Animationen, Neuladen und einen Test der Rückkehr zum Start. Schließt nach einer Minute ohne Bedienung von selbst.
 - **Täglicher Neustart:** Die Anwendung lädt sich nachts einmal neu (`config.json` → `kiosk.dailyReloadAt`, Standard 04:30), aber nur, wenn gerade niemand sie benutzt.
 - **Fehler:** Tritt ein unerwarteter Fehler auf, zeigt die Stele kurz einen ruhigen Hinweis in der gewählten Sprache und kehrt nach wenigen Sekunden von selbst zum Start zurück. Können die Inhalte gar nicht geladen werden, versucht sie es automatisch erneut.
 - **Standortwechsel:** nur den Parameter `location` in der Startadresse ändern (oder `config.json`).

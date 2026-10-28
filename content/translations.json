@@ -39,7 +39,11 @@
     "attract": {
       "title": "Tire le fil.",
       "tagline": "Derrière chaque objet, tout un monde.",
-      "touch": "Touche l’écran pour commencer"
+      "touch": "Touche l’écran pour commencer",
+      "pulling": "Tire… puis lâche.",
+      "motifs": {
+        "plant": "Et si tout était lié\u202f?"
+      }
     },
     "hub": {
       "title": "Quel fil veux-\u2060tu tirer\u202f?",
@@ -279,7 +283,12 @@
             "langs": "français"
           }
         }
-      }
+      },
+      "offerShort": {
+        "groups": "Un atelier pour les classes et les groupes, par {org}",
+        "public": "Un atelier ouvert à tous, par {org}"
+      },
+      "offerScan": "Scanne et découvre l’atelier"
     },
     "quiz": {
       "title": "Le défi 30 secondes",
@@ -546,7 +555,14 @@
         "high": "Haute",
         "balanced": "Équilibrée",
         "low": "Économe"
-      }
+      },
+      "design": "Variante graphique",
+      "designs": {
+        "dark": "Original Dark",
+        "corporate": "BNE Corporate"
+      },
+      "newDemo": "Nouvelle démonstration",
+      "badge": "Mention «\u00a0Prototype\u00a0»"
     },
     "preview": {
       "caption": "Aperçu de l’écran tactile 50 pouces en portrait. La souris remplace le doigt.",
@@ -592,7 +608,11 @@
     "attract": {
       "title": "Zieh am Faden.",
       "tagline": "Hinter jedem Ding steckt eine ganze Welt.",
-      "touch": "Berühre den Bildschirm, um zu starten"
+      "touch": "Berühre den Bildschirm, um zu starten",
+      "pulling": "Zieh … und lass los.",
+      "motifs": {
+        "plant": "Und wenn alles zusammenhängt?"
+      }
     },
     "hub": {
       "title": "An welchem Faden ziehst du?",
@@ -832,7 +852,12 @@
             "langs": "Französisch"
           }
         }
-      }
+      },
+      "offerShort": {
+        "groups": "Ein Workshop für Klassen und Gruppen von {org}",
+        "public": "Ein Workshop für alle, von {org}"
+      },
+      "offerScan": "Scannen und den Workshop entdecken"
     },
     "quiz": {
       "title": "Die 30-Sekunden-Challenge",
@@ -1099,7 +1124,14 @@
         "high": "Hoch",
         "balanced": "Ausgewogen",
         "low": "Sparsam"
-      }
+      },
+      "design": "Designvariante",
+      "designs": {
+        "dark": "Original Dark",
+        "corporate": "BNE Corporate"
+      },
+      "newDemo": "Neue Vorführung starten",
+      "badge": "Hinweis „Prototyp“"
     },
     "preview": {
       "caption": "Vorschau des 50-Zoll-Touchscreens im Hochformat. Die Maus ersetzt den Finger.",
@@ -1145,7 +1177,11 @@
     "attract": {
       "title": "Pull the thread.",
       "tagline": "Behind every thing, a whole world.",
-      "touch": "Touch the screen to begin"
+      "touch": "Touch the screen to begin",
+      "pulling": "Pull… then let go.",
+      "motifs": {
+        "plant": "What if everything is connected?"
+      }
     },
     "hub": {
       "title": "Which thread will you pull?",
@@ -1385,7 +1421,12 @@
             "langs": "French"
           }
         }
-      }
+      },
+      "offerShort": {
+        "groups": "A workshop for classes and groups by {org}",
+        "public": "A workshop open to everyone, by {org}"
+      },
+      "offerScan": "Scan to discover the workshop"
     },
     "quiz": {
       "title": "The 30-\u2060second challenge",
@@ -1652,7 +1693,14 @@
         "high": "High",
         "balanced": "Balanced",
         "low": "Low"
-      }
+      },
+      "design": "Design variant",
+      "designs": {
+        "dark": "Original Dark",
+        "corporate": "BNE Corporate"
+      },
+      "newDemo": "Start a new demo",
+      "badge": "“Prototype” label"
     },
     "preview": {
       "caption": "Preview of the 50-\u2060inch portrait touchscreen. Your mouse stands in for a finger.",

@@ -2,7 +2,9 @@
 
 Interaktive Touchscreen-Experience der BNE (Bildung fir nohalteg Entwécklung) für eine mobile Stele mit 50-Zoll-Hochformat-Bildschirm in Einkaufszentren in Luxemburg.
 
-**Status:** Prototyp zur Präsentation bei der BNE. Alle Inhalte sind Demonstrationsmaterial, bis die BNE sie freigibt.
+**Status:** Prototyp, Version 2 („Creative Evolution“), zur Präsentation bei der BNE. Alle Inhalte sind Demonstrationsmaterial, bis die BNE sie freigibt.
+
+**Neu in Version 2:** Der Faden lebt. Er formt im Ruhezustand nacheinander T-Shirt, Smartphone, Fahrrad und Pflanze und löst sich wieder auf; in den Geschichten zeichnet er den Gegenstand selbst. Man kann ihn mit dem Finger greifen: Er folgt, spannt sich, federt beim Loslassen nach und gibt die Geschichte frei (Antippen geht immer auch). Entdeckte Perlen fliegen sichtbar auf den persönlichen Faden. Zwei vollständige Designvarianten: **BNE Corporate** (hell, offizielles Logo und dessen 17 Farben) und **Original Dark**. Angebotskarten sind auf Kernaussage und großen QR-Code reduziert. Details und Begründungen: [docs/KONZEPT.md](docs/KONZEPT.md), Abschnitt 9.
 
 Ein Faden aus 17 Strängen, in den Farben der 17 Nachhaltigkeitsziele, läuft durch das ganze Erlebnis. Alltagsgegenstände tragen ein „verstecktes Etikett“: Wer an ihren Fäden zieht, sieht, womit sie verbunden sind. Jede Entdeckung wird als Perle an den eigenen Faden geknüpft, und am Ende nimmt man genau diese Entdeckungen per QR-Code mit nach Hause. Das Konzept und seine Begründung stehen in [docs/KONZEPT.md](docs/KONZEPT.md).
 
@@ -47,7 +49,7 @@ js/qr.js                    QR-Code-Generator, funktioniert offline
 content/config.json         Betrieb: Standort, Zeitlimits, Animation, Kiosk, Logo
 content/content.json        Struktur: Gegenstände, Quiz, Programme, Zielgruppen, Links, Daten
 content/translations.json   alle sichtbaren Texte in FR, DE, EN
-assets/                     Icon, Platz für das offizielle Logo (assets/brand/)
+assets/                     Icon, offizielles Logo (assets/brand/bne-logo.svg)
 sw.js                       Offline-Cache
 dist/                       eigenständige Einzeldatei
 docs/                       Konzept, Inhaltspflege, Kiosk-Einrichtung, offene Punkte
@@ -74,6 +76,7 @@ Das Skript meldet fehlende oder leere Texte, unterschiedliche Platzhalter zwisch
 
 | Parameter | Wirkung |
 |---|---|
+| `design=dark` | Designvariante für diesen Aufruf: `corporate` oder `dark` (ohne Parameter gilt die im Wartungsmenü gespeicherte Wahl, sonst `config.json`) |
 | `kiosk=1` | Vollbild-Betrieb ohne Vorschaurahmen; Vollbild bei der ersten Berührung, wenn in `config.json` aktiviert |
 | `location=Name` | Standortname oben rechts, überschreibt `config.json` |
 | `lang=de` | Startsprache zum Testen (nach dem Neustart gilt wieder Französisch) |
@@ -85,11 +88,17 @@ Das Skript meldet fehlende oder leere Texte, unterschiedliche Platzhalter zwisch
 | `admin=1` | Wartungsmenü sofort öffnen |
 | `sw=0` | Offline-Cache für diesen Aufruf abschalten (Entwicklung) |
 
-**Wartungsmenü an der Stele:** die Marke „bne.lu“ oben links 4 Sekunden gedrückt halten. Es zeigt Version, Standort, verwendetes Datum, Verbindung, Bilder pro Sekunde und Übersetzungsprüfung und bietet: Animationsqualität, reduzierte Animationen, Neu laden, Rückkehr zum Start testen.
+**Wartungsmenü an der Stele:** das Logo oben links 4 Sekunden gedrückt halten. Es ist für Besucherinnen und Besucher unsichtbar und bietet:
+
+- **Designvariante:** Original Dark | BNE Corporate. Stellt die gesamte Experience um (Farben, Schriften, Faden, Logo, Formen) und bleibt auf dem Gerät gespeichert, auch nach dem Neuladen.
+- **Neue Vorführung:** alles auf Anfang (Start, Französisch, leerer Faden, lokale Zähler gelöscht), die Designwahl bleibt.
+- **Hinweis „Prototyp“** ein- oder ausblenden (auf dem Gerät gespeichert). Auch ohne Hinweis bleibt die Anwendung ein Prototyp ohne offizielle Freigabe.
+- Animationsqualität, reduzierte Animationen, Neu laden, Rückkehr zum Start testen.
+- Anzeige von Version, Standort, verwendetem Datum, Verbindung, Bildrate und Übersetzungsprüfung.
 
 ## Schriften
 
-Titel: **Bricolage Grotesque**, Text: **Atkinson Hyperlegible Next** (vom Braille Institute für Lesbarkeit bei Sehschwäche entwickelt). Beide unter SIL Open Font License.
+Text in beiden Varianten: **Atkinson Hyperlegible Next** (vom Braille Institute für Lesbarkeit bei Sehschwäche entwickelt). Titel: **Lexend** in BNE Corporate, **Bricolage Grotesque** in Original Dark. Alle unter SIL Open Font License. Die Hausschrift von bne.lu ließ sich nicht verifizieren; Lexend ist eine freundliche, geometrische Ersatzwahl, die sich über das Token `--font-display` austauschen lässt.
 
 Standardmäßig kommen sie von Google Fonts; der Service Worker speichert sie nach dem ersten Start mit Internet. Damit die Stele auch beim allerersten Start offline richtig aussieht, einmalig mit Internet ausführen:
 
@@ -107,6 +116,8 @@ pip install playwright opencv-python-headless && playwright install chromium
 python3 -m http.server 8765 &              # im Projektordner
 python3 tools/test_e2e.py                  # Abläufe in FR/DE/EN, Textüberläufe, QR-Codes, Inaktivität (einige Minuten)
 python3 tools/test_e2e.py --lang de        # nur eine Sprache
+python3 tools/test_e2e.py --design dark --lang fr --only flows   # eine Variante, eine Sprache
+python3 tools/test_e2e.py --only v2        # Faden greifen, Designumschalter, Prototyp-Hinweis, neue Vorführung
 ```
 
 Der End-to-End-Test spielt alle Erlebnisse in allen drei Sprachen durch, wechselt mitten im Quiz die Sprache, prüft jeden Text auf Überlauf, dekodiert jeden QR-Code in jeder Sprache und testet die Rückkehr zum Start. Bildschirmfotos landen in `test-output/`.

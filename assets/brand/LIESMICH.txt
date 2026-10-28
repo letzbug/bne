@@ -1,4 +1,8 @@
-Hier das offizielle BNE-Logo ablegen, z. B. bne-logo.svg, und in content/config.json
-unter "brand": { "logo": "assets/brand/bne-logo.svg" } eintragen.
-Solange das Feld leer ist, zeigt die Stele die Textmarke "bne.lu".
-Logo und Farben vor dem Einsatz mit der BNE-Koordination abstimmen.
+bne-logo.svg: offizielles Logo von bne.lu, von der BNE-Projektseite bereitgestellt (Oktober 2026).
+Es ist in content/config.json unter "brand": { "logo": "assets/brand/bne-logo.svg" } eingetragen
+und wird direkt in die Seite eingebettet, damit die Schrift je Designvariante umgefärbt werden kann:
+  BNE Corporate: Original (Schrift #161615 auf hellem Grund)
+  Original Dark: Schrift hell (#F2F4EC) auf dunklem Grund. Diese Negativfassung ist automatisch erzeugt
+  und noch nicht von der BNE-Kommunikation freigegeben.
+Die 17 Farben der beiden Logo-Bögen sind in content/content.json unter "brandColors" hinterlegt.
+Ein anderes Logo: Datei ersetzen (SVG), Pfad in config.json anpassen.

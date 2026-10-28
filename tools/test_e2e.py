@@ -19,9 +19,11 @@ from playwright.sync_api import sync_playwright
 ap = argparse.ArgumentParser()
 ap.add_argument('--base', default='http://localhost:8765/')
 ap.add_argument('--lang', choices=['fr', 'de', 'en'], help='nur eine Sprache testen')
-ap.add_argument('--only', choices=['flows', 'qr'], help='nur Abläufe oder nur QR/Inaktivität')
+ap.add_argument('--only', choices=['flows', 'qr', 'v2'], help='nur Abläufe, nur QR/Inaktivität oder nur Faden/Design-Tests')
+ap.add_argument('--design', choices=['corporate', 'dark'], help='Designvariante für die Abläufe')
 args = ap.parse_args()
-BASE = args.base.rstrip('/') + '/index.html?sw=0'
+BASE = args.base.rstrip('/') + '/index.html?sw=0' + ('&design=' + args.design if args.design else '')
+TAG = (args.design + '-') if args.design else ''
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'test-output'); os.makedirs(OUT, exist_ok=True)
 problems = []
@@ -50,7 +52,7 @@ def run_language(p, lang):
     pg.on('console', lambda m: errs.append(m.text) if m.type == 'error' and 'ERR_NAME' not in m.text and 'ERR_INTERNET' not in m.text else None)
     def shot(name):
         pg.wait_for_timeout(300)
-        pg.screenshot(path=os.path.join(OUT, f'{lang}-{name}.png'))
+        pg.screenshot(path=os.path.join(OUT, f'{TAG}{lang}-{name}.png'))
         for x in pg.evaluate(AUDIT_JS): problems.append(f'{lang} {name}: Text {x[0]} {x[2]!r}')
     pg.goto(BASE); pg.wait_for_timeout(1500)
     pg.evaluate(f"BNE.setLang('{lang}')"); pg.wait_for_timeout(600); shot('attract')
@@ -135,11 +137,67 @@ def run_qr_and_idle(p):
     print('Inaktivität: Rückkehr zum Start, Französisch, leerer Faden' if st == ['attract', 'fr', 0] else f'Inaktivität: {st}')
     b.close()
 
+def run_v2(p):
+    """Faden greifen, Designumschalter mit Neuladen, Prototyp-Hinweis, neue Vorführung."""
+    plain = args.base.rstrip('/') + '/index.html?sw=0'
+    b = p.chromium.launch(); ctx = b.new_context(viewport={'width': 540, 'height': 960}); pg = ctx.new_page()
+    errs = []
+    pg.on('pageerror', lambda e: errs.append(str(e)))
+    pg.goto(plain + '&kiosk=1'); pg.wait_for_timeout(2600)
+    # einen Punkt mitten auf dem Faden suchen und ihn 330 Bühnenpixel weit ziehen
+    pt = pg.evaluate("""() => { const f = BNE.fil(); let best = null;
+        for (let i = 0; i < f.n; i++) { const x = f.cur[i*2], y = f.cur[i*2+1];
+          if (x > 200 && x < 880 && y > 420 && y < 1300) { best = [x, y]; break; } } return best; }""")
+    if not pt: problems.append('Faden im Startbild nicht gefunden')
+    else:
+        sc = 540 / 1080
+        pg.mouse.move(pt[0] * sc, pt[1] * sc); pg.mouse.down()
+        for i in range(1, 12): pg.mouse.move(pt[0] * sc + 8 * i, pt[1] * sc + 14 * i); pg.wait_for_timeout(30)
+        grabbed = pg.evaluate('BNE.fil().grabbed || BNE.state.screen === "hub"')
+        if not grabbed: problems.append('Faden ließ sich nicht greifen')
+        pg.screenshot(path=os.path.join(OUT, 'v2-thread-grab.png'))
+        pg.mouse.up(); pg.wait_for_timeout(1200)
+        if pg.evaluate('BNE.state.screen') != 'hub': problems.append('Ziehen am Faden hat das Erlebnis nicht gestartet')
+        print('Faden greifen und ziehen: startet das Erlebnis' if pg.evaluate('BNE.state.screen') == 'hub' else 'Faden: FEHLER')
+    # Antippen als Alternative
+    pg.evaluate("BNE.go('attract')"); pg.wait_for_timeout(900); pg.mouse.click(60, 820); pg.wait_for_timeout(900)
+    if pg.evaluate('BNE.state.screen') != 'hub': problems.append('Antippen startet nicht')
+    # Designumschalter im Wartungsmenü, bleibt nach dem Neuladen erhalten
+    for target, label in [('dark', 'Original Dark'), ('corporate', 'BNE Corporate')]:
+        pg.evaluate('BNE.openAdmin()'); pg.wait_for_timeout(400)
+        pg.locator('#admin button', has_text=label).first.click(); pg.wait_for_timeout(400)
+        pg.reload(); pg.wait_for_timeout(1500)
+        got = pg.evaluate('document.documentElement.dataset.design')
+        if got != target: problems.append(f'Design nach Neuladen {got}, erwartet {target}')
+    print('Designumschalter: Wahl bleibt nach dem Neuladen erhalten')
+    # Prototyp-Hinweis ab- und wieder anschalten
+    pg.evaluate('BNE.openAdmin()'); pg.wait_for_timeout(300)
+    pg.locator('#admin button', has_text='Prototype').first.click(); pg.wait_for_timeout(300)
+    pg.reload(); pg.wait_for_timeout(1200)
+    if 'is-off' not in (pg.get_attribute('#badge', 'class') or ''): problems.append('Prototyp-Hinweis lässt sich nicht ausblenden')
+    pg.evaluate('BNE.openAdmin()'); pg.wait_for_timeout(300)
+    pg.locator('#admin button', has_text='Prototype').first.click(); pg.wait_for_timeout(300)
+    pg.reload(); pg.wait_for_timeout(1200)
+    # Neue Vorführung: Faden leer, Start, Französisch
+    pg.evaluate("BNE.setLang('de'); BNE.go('object',{id:'tshirt'})"); pg.wait_for_timeout(1000)
+    pg.locator('.scr-object .knot').first.click(); pg.wait_for_timeout(1500)
+    pg.evaluate('BNE.openAdmin()'); pg.wait_for_timeout(300)
+    pg.locator('#admin button.btn-primary').first.click(); pg.wait_for_timeout(900)
+    st = pg.evaluate('[BNE.state.screen, BNE.state.lang, BNE.state.discoveries.length]')
+    if st != ['attract', 'fr', 0]: problems.append(f'Neue Vorführung setzt nicht zurück: {st}')
+    print('Neue Vorführung: Start, Französisch, leerer Faden' if st == ['attract', 'fr', 0] else f'Neue Vorführung: {st}')
+    for e in errs: problems.append('JavaScript-Fehler ' + e)
+    b.close()
+
 with sync_playwright() as p:
-    if args.only != 'qr':
+    if args.only == 'v2':
+        run_v2(p)
+    elif args.only != 'qr':
         for lang in ([args.lang] if args.lang else ['fr', 'de', 'en']):
             run_language(p, lang); print(f'{lang}: alle Erlebnisse durchgespielt', flush=True)
-    if args.only != 'flows':
+    if args.only is None:
+        run_v2(p)
+    if args.only in (None, 'qr'):
         run_qr_and_idle(p)
 
 if problems:

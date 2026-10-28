@@ -98,9 +98,19 @@ In `content.json` unter `quiz.items`:
 5. Die Auswahl zeigt die ersten vier Einträge aus `objects` (zwei Leinen mit je zwei Etiketten). Die Reihenfolge in der Datei bestimmt, welche vier es sind; weitere Einträge bleiben vorbereitet, bis man sie nach vorne schiebt. In `config.json` unter `attract.objects` festlegen, welche Gegenstände der Anziehungs-Loop zeigt.
 6. `node tools/check-translations.mjs` und den End-to-End-Test laufen lassen.
 
-### Logo einsetzen
+### Logo und Markenfarben
 
-Offizielles Logo als SVG nach `assets/brand/` legen und in `config.json` eintragen: `"brand": { "logo": "assets/brand/bne-logo.svg" }`. Ohne Eintrag zeigt die Stele die Textmarke „bne.lu“.
+Das offizielle Logo liegt unter `assets/brand/bne-logo.svg` und ist in `config.json` eingetragen. Es wird in die Seite eingebettet, damit die Schrift je Variante passt (schwarz auf hell, hell auf dunkel). Die 17 Farben der Logo-Bögen stehen in `content.json` unter `brandColors.thread`; sie färben den Faden und den Ring der Variante BNE Corporate.
+
+### Designvariante beim Start
+
+In `config.json`: `"design": { "variant": "corporate" }` oder `"dark"`. Eine Wahl im Wartungsmenü hat auf dem jeweiligen Gerät Vorrang.
+
+### Welche Formen der Faden im Ruhezustand bildet
+
+In `config.json` unter `attract.objects`, zum Beispiel `["tshirt", "phone", "ride", "plant"]`. Erlaubt sind Gegenstände aus `objects` (der Faden zeigt dazu deren Frage) und Motive aus `motifs` (ohne eigene Geschichte, Text unter `attract.motifs.<id>`). `flowSec` und `holdSec` steuern, wie lange der Faden frei fließt und wie lange eine Form stehen bleibt.
+
+Jede Form ist ein Linienzug `form` im Format 400 × 400, den der Faden in einem Zug nachzeichnet. Fehlt `form`, wird er aus der Zeichnung `drawing` berechnet; das funktioniert gut bei einer geschlossenen Umrisslinie (wie beim T-Shirt). Bei Zeichnungen aus mehreren Teilen lieber einen eigenen, durchgehenden Linienzug anlegen.
 
 ### Hinweis „Prototyp“ entfernen
 

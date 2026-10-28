@@ -205,3 +205,48 @@ Hinweis: Der Titel auf bne.lu lautet „Minerais et Intelligence Artificelle“ 
 | Baumwolle braucht viel Wasser; Textilien durchlaufen oft mehrere Länder; Arbeitsbedingungen nicht immer fair | Inhalt des Fairtrade-Workshops „D’où vient mon T-shirt ?“; allgemeiner Forschungsstand |
 
 Alle Aussagen sind bewusst qualitativ oder mit gerundeten, gut belegten Zahlen formuliert. Vor dem Einsatz sollte die BNE-Koordination jede Aussage fachlich freigeben (siehe docs/OFFENE-PUNKTE.md).
+
+---
+
+## 9. Version 2: Creative Evolution
+
+Grundlage war die Rückmeldung nach dem ersten Test: Konzept beibehalten, Corporate Identity näher an bne.lu, der Faden als eigentliches Erlebnis, mehr Wirkung auf dem Startbild, weniger Text auf den Angebotskarten. Alle Funktionen der Version 1 sind erhalten (Erlebniswelten, Geschichten, Perlen, QR-Codes, Dreisprachigkeit, Inhaltsdateien, Kiosk, Inaktivität, GitHub Pages, Einzeldatei).
+
+### Corporate Identity: was verifiziert ist
+
+| Element | Quelle | Status |
+|---|---|---|
+| Logo „bne.lu – Bildung fir Nohalteg Entwécklung“ | `bne-logo.svg`, von der Projektseite bereitgestellt | verifiziert, unverändert eingesetzt |
+| Schriftfarbe `#161615` | aus dem Logo | verifiziert |
+| 17 Farben der beiden Logo-Bögen (`#8e0933`, `#ffb300`, `#14b0db`, `#df2821`, `#b50021`, `#4c8f26`, `#da9426`, `#db092c`, `#e75020`, `#d00055`, `#f5861a`, `#b5771f`, `#3a6c33`, `#0086cc`, `#60a422`, `#00578f`, `#093958`) | aus dem Logo, in Leserichtung | verifiziert |
+| Formsprache: segmentierte Farbbögen, Kreis, runde Kleinbuchstaben | aus dem Logo; Regenbogen-Grafiken in Kopf- und Fußzeile von bne.lu (Dateinamen) | verifiziert |
+| Hausschrift der Website | Stylesheet nicht abrufbar | **nicht verifiziert**; Ersatz Lexend, austauschbar |
+| Hintergrundfarben, Grautöne, Schatten der Corporate-Variante | eigene Ableitung | **nicht offiziell**, als Tokens oben in `css/app.css` |
+| Negativfassung des Logos (helle Schrift) für Original Dark | automatisch umgefärbt | **nicht freigegeben**, mit der BNE-Kommunikation abstimmen |
+
+Kampagnenvisuals und Bildsprache der Website ließen sich mit den verfügbaren Werkzeugen nur über Seitentexte und Dateinamen erschließen, nicht als Bilder. Es wurden keine Farbwerte erfunden und keine Logos nachgezeichnet.
+
+### Zwei Varianten
+
+**BNE Corporate** (Standard): warmes Papierweiß, Schrift in Logo-Schwarz, der Faden in den 17 Logo-Farben als farbiges Garn mit weichem Schatten, sodass er räumlich über dem Papier zu liegen scheint. Auf dem Startbild dreht sich langsam ein großer Ring aus den 17 Logo-Segmenten; der Faden formt die Gegenstände in seiner Mitte, sodass das Bild wie eine lebendige Fassung des Logos wirkt. Knöpfe und Startpunkt tragen denselben segmentierten Ring. Titel in Lexend, Text in Atkinson Hyperlegible Next.
+
+**Original Dark**: die Gestaltung der Version 1 (tiefes Petrol, leuchtender Faden in den ODD-Farben, Bricolage Grotesque), mit eingebettetem Logo in heller Schrift.
+
+Der Umschalter sitzt im Wartungsmenü und stellt alles um: Farben, Schriften, Faden-Darstellung, Logo, Formen, Schatten. Die Wahl wird auf dem Gerät gespeichert.
+
+### Der lebendige Faden
+
+- **Ruhezustand:** Der Faden fließt frei über das Bild, sammelt sich dann zu einem Gegenstand (T-Shirt, Smartphone, Fahrrad, Pflanze), hält die Form einige Sekunden, atmet dabei leicht und löst sich wieder. Unter jeder Form erscheint eine einzige große Frage, nur in der gewählten Sprache. Weil die Form jedes Mal aus einer anderen Lage des Fadens entsteht, wirkt keine Wiederholung gleich.
+- **Berührung:** Wer den Faden anfasst, greift ihn tatsächlich. Der berührte Abschnitt folgt dem Finger, die Fasern ziehen sich unter Spannung zusammen, der Zopf dreht sich schneller. Beim Loslassen schwingt er federnd zurück. Auf dem Startbild verwandelt sich die Aufforderung während des Ziehens in „Tire… puis lâche.“; Loslassen oder weites Ziehen startet das Erlebnis. Antippen irgendwo funktioniert immer genauso.
+- **Geschichten:** Der Faden zeichnet den gewählten Gegenstand selbst, deckungsgleich über einer feinen Linienzeichnung, damit auch detailreiche Formen wie Fahrrad oder Schokolade klar lesbar bleiben. Aus ihm führen die vier Fäden zu den Knoten. Bei Entscheidung und Angebot legt er sich als Schlinge um die kleine, klare Zeichnung. Beim Etikettwechsel und bei jeder Entscheidung läuft ein Lichtimpuls durch den Faden.
+- **Navigation:** Bei jedem Bildschirmwechsel gleitet der Faden in seine neue Form, ein Lichtimpuls läuft voraus.
+- **Perlen:** Jede Entdeckung fliegt als Perle aus dem Inhalt in den persönlichen Faden im Dock und wird dort angeknüpft; ein Impuls läuft zurück durch den großen Faden.
+- **Leistung:** Canvas, keine Videos. Die Qualität passt sich der Hardware an (Punktzahl, Auflösung, Leuchteffekt). Bei reduzierter Bewegung bleiben Formen und Reaktionen erhalten, aber ohne Nachschwingen, Partikel und Impulse.
+
+### Angebotskarten
+
+Jede Karte zeigt nur noch: den Namen des realen Angebots, eine Zeile (für wen, von wem), einen großen QR-Code und eine klare Aufforderung („Scanne et découvre l’atelier“). Die dominante Kernaussage steht direkt darüber als Einsicht aus der eigenen Entscheidung. Die Programmkarten unter „BNE in deiner Nähe“ zeigen Kernaussage, eine kurze Erklärung, den aktuellen Termin und den QR-Code. Alle Details liegen auf bne.lu.
+
+### Präsentationsmodus
+
+Die Anwendung öffnet direkt im animierten Startbild. Für eine neue Vorführung im Wartungsmenü „Nouvelle démonstration“ wählen. Der Hinweis „Prototyp“ lässt sich dort ausblenden; nichts in der Anwendung stellt sie als offiziell freigegeben dar.

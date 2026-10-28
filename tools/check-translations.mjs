@@ -115,6 +115,12 @@ for (const [id, p] of Object.entries(content.programs || {})) {
   need(`local.audiences.${a.id}.title`); need(`local.audiences.${a.id}.text`);
   a.programs.forEach((p) => { if (!content.programs[p]) errors.push(`Zielgruppe ${a.id}: Programm „${p}“ unbekannt`); });
 });
+(config.attract?.objects || []).forEach((id) => {
+  const isObj = (content.objects || []).some((o) => o.id === id), motif = content.motifs?.[id];
+  if (!isObj && !motif) errors.push(`config.attract.objects: „${id}“ ist weder Gegenstand noch Motiv`);
+  if (motif) { need(`attract.motifs.${id}`); if (!Array.isArray(motif.form) || motif.form.length < 2) errors.push(`Motiv ${id}: form fehlt`); }
+});
+if (content.brandColors && (content.brandColors.thread || []).length !== 17) errors.push('brandColors.thread braucht genau 17 Farben');
 (content.take?.defaults || []).forEach((p) => { if (!content.programs[p]) errors.push(`take.defaults: Programm „${p}“ unbekannt`); });
 
 // 3. Links

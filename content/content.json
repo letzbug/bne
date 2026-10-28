@@ -1,99 +1,462 @@
 {
-  "_info": "Struktur der Inhalte. Alle sichtbaren Texte stehen in translations.json unter denselben IDs. Datumsangaben JJJJ-MM-TT, jeweils einschließlich. 'checked' = Datum, an dem der Link geprüft wurde; 'pattern' = Link nach dem Sprachmuster von bne.lu gebildet, vor dem Einsatz öffnen und prüfen.",
-
+  "_info": "Struktur der Inhalte. Alle sichtbaren Texte stehen in translations.json unter denselben IDs. Datumsangaben JJJJ-MM-TT, jeweils einschließlich. 'checked' = Datum, an dem der Link geprüft wurde; 'pattern' = Link nach dem Sprachmuster von bne.lu gebildet, vor dem Einsatz öffnen und prüfen. 'form' bei Gegenständen: optionaler Linienzug (400 × 400), den der Faden selbst nachzeichnet; fehlt er, wird er aus 'drawing' berechnet.",
   "sdgColors": {
-    "1": "#E5243B", "2": "#DDA63A", "3": "#4C9F38", "4": "#C5192D", "5": "#FF3A21", "6": "#26BDE2",
-    "7": "#FCC30B", "8": "#A21942", "9": "#FD6925", "10": "#DD1367", "11": "#FD9D24", "12": "#BF8B2E",
-    "13": "#3F7E44", "14": "#0A97D9", "15": "#56C02B", "16": "#00689D", "17": "#19486A"
+    "1": "#E5243B",
+    "2": "#DDA63A",
+    "3": "#4C9F38",
+    "4": "#C5192D",
+    "5": "#FF3A21",
+    "6": "#26BDE2",
+    "7": "#FCC30B",
+    "8": "#A21942",
+    "9": "#FD6925",
+    "10": "#DD1367",
+    "11": "#FD9D24",
+    "12": "#BF8B2E",
+    "13": "#3F7E44",
+    "14": "#0A97D9",
+    "15": "#56C02B",
+    "16": "#00689D",
+    "17": "#19486A"
   },
-
+  "brandColors": {
+    "_info": "Verifiziert aus dem offiziellen Logo (assets/brand/bne-logo.svg): Schriftfarbe und die 17 Farbsegmente der beiden Logo-Bögen, in Leserichtung (unterer Bogen von oben nach unten, dann oberer Bogen von links nach rechts). Faden der Variante BNE Corporate.",
+    "ink": "#161615",
+    "thread": [
+      "#8e0933",
+      "#ffb300",
+      "#14b0db",
+      "#df2821",
+      "#b50021",
+      "#4c8f26",
+      "#da9426",
+      "#db092c",
+      "#e75020",
+      "#d00055",
+      "#f5861a",
+      "#b5771f",
+      "#3a6c33",
+      "#0086cc",
+      "#60a422",
+      "#00578f",
+      "#093958"
+    ]
+  },
   "urls": {
-    "home":        { "fr": "https://bne.lu/", "de": "https://bne.lu/de/", "en": "https://bne.lu/en/", "checked": "2026-10-28" },
-    "networking":  { "fr": "https://bne.lu/bnenetworking/", "de": "https://bne.lu/de/bnenetworking/", "en": "https://bne.lu/en/bnenetworking/", "checked": "2026-10-28" },
-    "awards":      { "fr": "https://bne.lu/bneawards/", "de": "https://bne.lu/de/bneawards/", "en": "https://bne.lu/en/bneawards/", "checked": "2026-10-28" },
-    "supply":      { "fr": "https://bne.lu/bnesupply/", "de": "https://bne.lu/de/bnesupply/", "en": "https://bne.lu/en/bnesupply/", "checked": "2026-10-28" },
-    "training":    { "fr": "https://bne.lu/bnetraining/", "de": "https://bne.lu/de/bnetraining/", "en": "https://bne.lu/en/bnetraining/", "checked": "2026-10-28" },
-    "youth":       { "fr": "https://bne.lu/les-offres/?public=bne-youth", "de": "https://bne.lu/de/les-offres/?public=bne-youth", "en": "https://bne.lu/en/les-offres/?public=bne-youth", "checked": "2026-10-28" },
-    "adults":      { "fr": "https://bne.lu/les-offres/?public=bne-adultes", "de": "https://bne.lu/de/les-offres/?public=bne-adultes", "en": "https://bne.lu/en/les-offres/?public=bne-adultes", "checked": "2026-10-28" },
-    "agenda":      { "fr": "https://bne.lu/lagenda-2030-et-les-odd/", "de": "https://bne.lu/de/lagenda-2030-et-les-odd/", "en": "https://bne.lu/en/lagenda-2030-et-les-odd/", "checked": "2026-10-28 (fr)", "pattern": ["de", "en"] },
-    "edd":         { "fr": "https://bne.lu/leducation-au-developpement-durable-edd/", "de": "https://bne.lu/de/leducation-au-developpement-durable-edd/", "en": "https://bne.lu/en/leducation-au-developpement-durable-edd/", "checked": "2026-10-28" },
-    "offer_tshirt": { "fr": "https://bne.lu/les_offres/dou-vient-mon-t-shirt/", "de": "https://bne.lu/de/les_offres/dou-vient-mon-t-shirt/", "en": "https://bne.lu/en/les_offres/dou-vient-mon-t-shirt/", "checked": "2026-10-28" },
-    "offer_phone":  { "fr": "https://bne.lu/les_offres/minerais-et-intelligence-artificelle/", "de": "https://bne.lu/de/les_offres/minerais-et-intelligence-artificelle/", "en": "https://bne.lu/en/les_offres/minerais-et-intelligence-artificelle/", "checked": "2026-10-28" },
-    "offer_choco":  { "fr": "https://bne.lu/les_offres/chocotastique-le-voyage-dune-cabosse/", "de": "https://bne.lu/de/les_offres/chocotastique-le-voyage-dune-cabosse/", "en": "https://bne.lu/en/les_offres/chocotastique-le-voyage-dune-cabosse/", "checked": "2026-10-28" },
-    "offer_ride":   { "fr": "https://bne.lu/les_offres/fresque-de-la-mobilite-redange-lu/", "de": "https://bne.lu/de/les_offres/fresque-de-la-mobilite-redange-lu/", "en": "https://bne.lu/en/les_offres/fresque-de-la-mobilite-redange-lu/", "checked": "2026-10-28" }
+    "home": {
+      "fr": "https://bne.lu/",
+      "de": "https://bne.lu/de/",
+      "en": "https://bne.lu/en/",
+      "checked": "2026-10-28"
+    },
+    "networking": {
+      "fr": "https://bne.lu/bnenetworking/",
+      "de": "https://bne.lu/de/bnenetworking/",
+      "en": "https://bne.lu/en/bnenetworking/",
+      "checked": "2026-10-28"
+    },
+    "awards": {
+      "fr": "https://bne.lu/bneawards/",
+      "de": "https://bne.lu/de/bneawards/",
+      "en": "https://bne.lu/en/bneawards/",
+      "checked": "2026-10-28"
+    },
+    "supply": {
+      "fr": "https://bne.lu/bnesupply/",
+      "de": "https://bne.lu/de/bnesupply/",
+      "en": "https://bne.lu/en/bnesupply/",
+      "checked": "2026-10-28"
+    },
+    "training": {
+      "fr": "https://bne.lu/bnetraining/",
+      "de": "https://bne.lu/de/bnetraining/",
+      "en": "https://bne.lu/en/bnetraining/",
+      "checked": "2026-10-28"
+    },
+    "youth": {
+      "fr": "https://bne.lu/les-offres/?public=bne-youth",
+      "de": "https://bne.lu/de/les-offres/?public=bne-youth",
+      "en": "https://bne.lu/en/les-offres/?public=bne-youth",
+      "checked": "2026-10-28"
+    },
+    "adults": {
+      "fr": "https://bne.lu/les-offres/?public=bne-adultes",
+      "de": "https://bne.lu/de/les-offres/?public=bne-adultes",
+      "en": "https://bne.lu/en/les-offres/?public=bne-adultes",
+      "checked": "2026-10-28"
+    },
+    "agenda": {
+      "fr": "https://bne.lu/lagenda-2030-et-les-odd/",
+      "de": "https://bne.lu/de/lagenda-2030-et-les-odd/",
+      "en": "https://bne.lu/en/lagenda-2030-et-les-odd/",
+      "checked": "2026-10-28 (fr)",
+      "pattern": [
+        "de",
+        "en"
+      ]
+    },
+    "edd": {
+      "fr": "https://bne.lu/leducation-au-developpement-durable-edd/",
+      "de": "https://bne.lu/de/leducation-au-developpement-durable-edd/",
+      "en": "https://bne.lu/en/leducation-au-developpement-durable-edd/",
+      "checked": "2026-10-28"
+    },
+    "offer_tshirt": {
+      "fr": "https://bne.lu/les_offres/dou-vient-mon-t-shirt/",
+      "de": "https://bne.lu/de/les_offres/dou-vient-mon-t-shirt/",
+      "en": "https://bne.lu/en/les_offres/dou-vient-mon-t-shirt/",
+      "checked": "2026-10-28"
+    },
+    "offer_phone": {
+      "fr": "https://bne.lu/les_offres/minerais-et-intelligence-artificelle/",
+      "de": "https://bne.lu/de/les_offres/minerais-et-intelligence-artificelle/",
+      "en": "https://bne.lu/en/les_offres/minerais-et-intelligence-artificelle/",
+      "checked": "2026-10-28"
+    },
+    "offer_choco": {
+      "fr": "https://bne.lu/les_offres/chocotastique-le-voyage-dune-cabosse/",
+      "de": "https://bne.lu/de/les_offres/chocotastique-le-voyage-dune-cabosse/",
+      "en": "https://bne.lu/en/les_offres/chocotastique-le-voyage-dune-cabosse/",
+      "checked": "2026-10-28"
+    },
+    "offer_ride": {
+      "fr": "https://bne.lu/les_offres/fresque-de-la-mobilite-redange-lu/",
+      "de": "https://bne.lu/de/les_offres/fresque-de-la-mobilite-redange-lu/",
+      "en": "https://bne.lu/en/les_offres/fresque-de-la-mobilite-redange-lu/",
+      "checked": "2026-10-28"
+    }
   },
-
   "hub": [
-    { "id": "objects", "screen": "objects", "icon": "tag",   "sdg": 12 },
-    { "id": "quiz",    "screen": "quiz",    "icon": "timer", "sdg": 7 },
-    { "id": "bne",     "screen": "bne",     "icon": "links", "sdg": 4 },
-    { "id": "local",   "screen": "local",   "icon": "pin",   "sdg": 11 }
+    {
+      "id": "objects",
+      "screen": "objects",
+      "icon": "tag",
+      "sdg": 12
+    },
+    {
+      "id": "quiz",
+      "screen": "quiz",
+      "icon": "timer",
+      "sdg": 7
+    },
+    {
+      "id": "bne",
+      "screen": "bne",
+      "icon": "links",
+      "sdg": 4
+    },
+    {
+      "id": "local",
+      "screen": "local",
+      "icon": "pin",
+      "sdg": 11
+    }
   ],
-
   "objects": [
     {
       "id": "tshirt",
-      "threads": [ { "id": "field", "sdg": 6 }, { "id": "hands", "sdg": 8 }, { "id": "journey", "sdg": 13 }, { "id": "after", "sdg": 12 } ],
-      "options": ["keep", "repair", "give"],
-      "offer": { "url": "offer_tshirt", "kind": "groups" },
+      "threads": [
+        {
+          "id": "field",
+          "sdg": 6
+        },
+        {
+          "id": "hands",
+          "sdg": 8
+        },
+        {
+          "id": "journey",
+          "sdg": 13
+        },
+        {
+          "id": "after",
+          "sdg": 12
+        }
+      ],
+      "options": [
+        "keep",
+        "repair",
+        "give"
+      ],
+      "offer": {
+        "url": "offer_tshirt",
+        "kind": "groups"
+      },
       "drawing": "M150 62 C162 96 238 96 250 62 L306 78 L366 132 L330 188 L292 164 L292 344 L108 344 L108 164 L70 188 L34 132 L94 78 Z"
     },
     {
       "id": "phone",
-      "threads": [ { "id": "metals", "sdg": 12 }, { "id": "mines", "sdg": 8 }, { "id": "energy", "sdg": 7 }, { "id": "data", "sdg": 9 } ],
-      "options": ["keep", "repair", "recycle"],
-      "offer": { "url": "offer_phone", "kind": "groups" },
-      "drawing": "M150 40 H250 Q282 40 282 72 V328 Q282 360 250 360 H150 Q118 360 118 328 V72 Q118 40 150 40 Z M180 66 H220 M178 334 H222"
+      "threads": [
+        {
+          "id": "metals",
+          "sdg": 12
+        },
+        {
+          "id": "mines",
+          "sdg": 8
+        },
+        {
+          "id": "energy",
+          "sdg": 7
+        },
+        {
+          "id": "data",
+          "sdg": 9
+        }
+      ],
+      "options": [
+        "keep",
+        "repair",
+        "recycle"
+      ],
+      "offer": {
+        "url": "offer_phone",
+        "kind": "groups"
+      },
+      "drawing": "M150 40 H250 Q282 40 282 72 V328 Q282 360 250 360 H150 Q118 360 118 328 V72 Q118 40 150 40 Z M180 66 H220 M178 334 H222",
+      "form": [
+        [200, 348], [192.7, 348.0], [185.3, 348.0], [178.0, 348.0], [170.7, 348.0], [163.3, 348.0], [156.0, 348.0], [148.8, 347.0], [142.0, 344.2], [136.2, 339.8], [131.8, 334.0], [129.0, 327.2], [128.0, 320.0], [128.0, 302.9], [128.0, 285.7], [128.0, 268.6], [128.0, 251.4], [128.0, 234.3], [128.0, 217.1], [128.0, 200.0], [128.0, 182.9], [128.0, 165.7], [128.0, 148.6], [128.0, 131.4], [128.0, 114.3], [128.0, 97.1], [128.0, 80.0], [129.0, 72.8], [131.8, 66.0], [136.2, 60.2], [142.0, 55.8], [148.8, 53.0], [156.0, 52.0], [161.5, 52.0], [167.0, 52.0], [172.5, 52.0], [178.0, 52.0], [178.0, 58.7], [178.0, 65.3], [178.0, 72.0], [189.0, 72.0], [200.0, 72.0], [211.0, 72.0], [222.0, 72.0], [222.0, 65.3], [222.0, 58.7], [222.0, 52.0], [227.5, 52.0], [233.0, 52.0], [238.5, 52.0], [244.0, 52.0], [251.2, 53.0], [258.0, 55.8], [263.8, 60.2], [268.2, 66.0], [271.0, 72.8], [272.0, 80.0], [272.0, 97.1], [272.0, 114.3], [272.0, 131.4], [272.0, 148.6], [272.0, 165.7], [272.0, 182.9], [272.0, 200.0], [272.0, 217.1], [272.0, 234.3], [272.0, 251.4], [272.0, 268.6], [272.0, 285.7], [272.0, 302.9], [272.0, 320.0], [271.0, 327.2], [268.2, 334.0], [263.8, 339.8], [258.0, 344.2], [251.2, 347.0], [244.0, 348.0], [236.4, 348.0], [228.8, 348.0], [221.2, 348.0], [213.6, 348.0], [206.0, 348.0]
+      ]
     },
     {
       "id": "choco",
-      "threads": [ { "id": "tree", "sdg": 15 }, { "id": "families", "sdg": 1 }, { "id": "share", "sdg": 10 }, { "id": "fair", "sdg": 12 } ],
-      "options": ["origin", "fair", "savour"],
-      "offer": { "url": "offer_choco", "kind": "groups" },
-      "drawing": "M112 70 H288 V330 H112 Z M171 70 V250 M229 70 V250 M112 130 H288 M112 190 H288 M112 250 L136 238 L160 254 L184 238 L208 254 L232 238 L256 254 L288 240"
+      "threads": [
+        {
+          "id": "tree",
+          "sdg": 15
+        },
+        {
+          "id": "families",
+          "sdg": 1
+        },
+        {
+          "id": "share",
+          "sdg": 10
+        },
+        {
+          "id": "fair",
+          "sdg": 12
+        }
+      ],
+      "options": [
+        "origin",
+        "fair",
+        "savour"
+      ],
+      "offer": {
+        "url": "offer_choco",
+        "kind": "groups"
+      },
+      "drawing": "M112 70 H288 V330 H112 Z M171 70 V250 M229 70 V250 M112 130 H288 M112 190 H288 M112 250 L136 238 L160 254 L184 238 L208 254 L232 238 L256 254 L288 240",
+      "form": [
+        [110, 70], [125.0, 70.0], [140.0, 70.0], [155.0, 70.0], [170.0, 70.0], [185.0, 70.0], [200.0, 70.0], [215.0, 70.0], [230.0, 70.0], [245.0, 70.0], [260.0, 70.0], [275.0, 70.0], [290.0, 70.0], [290.0, 86.9], [290.0, 103.8], [290.0, 120.6], [290.0, 137.5], [290.0, 154.4], [290.0, 171.2], [290.0, 188.1], [290.0, 205.0], [290.0, 221.9], [290.0, 238.8], [290.0, 255.6], [290.0, 272.5], [290.0, 289.4], [290.0, 306.2], [290.0, 323.1], [290.0, 340.0], [275.0, 340.0], [260.0, 340.0], [245.0, 340.0], [230.0, 340.0], [215.0, 340.0], [200.0, 340.0], [185.0, 340.0], [170.0, 340.0], [155.0, 340.0], [140.0, 340.0], [125.0, 340.0], [110.0, 340.0], [110.0, 323.1], [110.0, 306.2], [110.0, 289.4], [110.0, 272.5], [110.0, 255.6], [110.0, 238.8], [110.0, 221.9], [110.0, 205.0], [110.0, 188.1], [110.0, 171.2], [110.0, 154.4], [110.0, 137.5], [110.0, 120.6], [110.0, 103.8], [110.0, 86.9], [110.0, 70.0], [110.0, 88.0], [110.0, 106.0], [110.0, 124.0], [110.0, 142.0], [110.0, 160.0], [125.0, 160.0], [140.0, 160.0], [155.0, 160.0], [170.0, 160.0], [185.0, 160.0], [200.0, 160.0], [215.0, 160.0], [230.0, 160.0], [245.0, 160.0], [260.0, 160.0], [275.0, 160.0], [290.0, 160.0], [290.0, 178.0], [290.0, 196.0], [290.0, 214.0], [290.0, 232.0], [290.0, 250.0], [275.0, 250.0], [260.0, 250.0], [245.0, 250.0], [230.0, 250.0], [215.0, 250.0], [200.0, 250.0], [185.0, 250.0], [170.0, 250.0], [155.0, 250.0], [140.0, 250.0], [125.0, 250.0], [110.0, 250.0], [110.0, 262.0], [122.0, 256.0], [134.0, 250.0], [146.0, 257.0], [158.0, 264.0], [170.0, 257.0], [182.0, 250.0], [194.0, 257.0], [206.0, 264.0], [218.0, 257.0], [230.0, 250.0], [242.0, 257.0], [254.0, 264.0], [266.0, 257.0], [278.0, 250.0], [284.0, 254.0], [290.0, 258.0], [290.0, 250.0], [275.0, 250.0], [260.0, 250.0], [245.0, 250.0], [230.0, 250.0], [230.0, 232.0], [230.0, 214.0], [230.0, 196.0], [230.0, 178.0], [230.0, 160.0], [230.0, 142.0], [230.0, 124.0], [230.0, 106.0], [230.0, 88.0], [230.0, 70.0], [215.0, 70.0], [200.0, 70.0], [185.0, 70.0], [170.0, 70.0], [170.0, 88.0], [170.0, 106.0], [170.0, 124.0], [170.0, 142.0], [170.0, 160.0], [170.0, 178.0], [170.0, 196.0], [170.0, 214.0], [170.0, 232.0], [170.0, 250.0]
+      ]
     },
     {
       "id": "ride",
-      "threads": [ { "id": "air", "sdg": 11 }, { "id": "climate", "sdg": 13 }, { "id": "health", "sdg": 3 }, { "id": "network", "sdg": 11 } ],
-      "options": ["active", "transit", "share"],
-      "offer": { "url": "offer_ride", "kind": "public" },
-      "drawing": "M48 268 A70 70 0 1 1 188 268 A70 70 0 1 1 48 268 Z M212 268 A70 70 0 1 1 352 268 A70 70 0 1 1 212 268 Z M118 268 L168 160 L204 268 Z M168 160 L276 164 L204 268 M276 164 L282 268 M150 148 H190 M276 164 L268 128 H302"
+      "threads": [
+        {
+          "id": "air",
+          "sdg": 11
+        },
+        {
+          "id": "climate",
+          "sdg": 13
+        },
+        {
+          "id": "health",
+          "sdg": 3
+        },
+        {
+          "id": "network",
+          "sdg": 11
+        }
+      ],
+      "options": [
+        "active",
+        "transit",
+        "share"
+      ],
+      "offer": {
+        "url": "offer_ride",
+        "kind": "public"
+      },
+      "drawing": "M48 268 A70 70 0 1 1 188 268 A70 70 0 1 1 48 268 Z M212 268 A70 70 0 1 1 352 268 A70 70 0 1 1 212 268 Z M118 268 L168 160 L204 268 Z M168 160 L276 164 L204 268 M276 164 L282 268 M150 148 H190 M276 164 L268 128 H302",
+      "form": [
+        [120.0, 204.0], [134.7, 205.7], [148.6, 210.5], [161.2, 218.4], [171.6, 228.8], [179.5, 241.4], [184.3, 255.3], [186.0, 270.0], [184.3, 284.7], [179.5, 298.6], [171.6, 311.2], [161.2, 321.6], [148.6, 329.5], [134.7, 334.3], [120.0, 336.0], [105.3, 334.3], [91.4, 329.5], [78.8, 321.6], [68.4, 311.2], [60.5, 298.6], [55.7, 284.7], [54.0, 270.0], [55.7, 255.3], [60.5, 241.4], [68.4, 228.8], [78.8, 218.4], [91.4, 210.5], [105.3, 205.7], [120.0, 204.0], [120.0, 220.5], [120.0, 237.0], [120.0, 253.5], [120.0, 270.0], [135.6, 270.0], [151.2, 270.0], [166.8, 270.0], [182.4, 270.0], [198.0, 270.0], [193.3, 252.0], [188.7, 234.0], [184.0, 216.0], [179.3, 198.0], [174.7, 180.0], [170.0, 162.0], [161.0, 156.0], [152.0, 150.0], [164.7, 150.0], [177.3, 150.0], [190.0, 150.0], [180.0, 156.0], [170.0, 162.0], [183.2, 162.5], [196.5, 163.0], [209.8, 163.5], [223.0, 164.0], [236.2, 164.5], [249.5, 165.0], [262.8, 165.5], [276.0, 166.0], [266.2, 179.0], [256.5, 192.0], [246.8, 205.0], [237.0, 218.0], [227.2, 231.0], [217.5, 244.0], [207.8, 257.0], [198.0, 270.0], [207.8, 257.0], [217.5, 244.0], [227.2, 231.0], [237.0, 218.0], [246.8, 205.0], [256.5, 192.0], [266.2, 179.0], [276.0, 166.0], [272.7, 154.7], [269.3, 143.3], [266.0, 132.0], [278.0, 130.7], [290.0, 129.3], [302.0, 128.0], [293.3, 140.7], [284.7, 153.3], [276.0, 166.0], [278.7, 183.3], [281.3, 200.7], [284.0, 218.0], [286.7, 235.3], [289.3, 252.7], [292.0, 270.0], [292.0, 253.5], [292.0, 237.0], [292.0, 220.5], [292.0, 204.0], [306.7, 205.7], [320.6, 210.5], [333.2, 218.4], [343.6, 228.8], [351.5, 241.4], [356.3, 255.3], [358.0, 270.0], [356.3, 284.7], [351.5, 298.6], [343.6, 311.2], [333.2, 321.6], [320.6, 329.5], [306.7, 334.3], [292.0, 336.0], [277.3, 334.3], [263.4, 329.5], [250.8, 321.6], [240.4, 311.2], [232.5, 298.6], [227.7, 284.7], [226.0, 270.0], [227.7, 255.3], [232.5, 241.4], [240.4, 228.8], [250.8, 218.4], [263.4, 210.5], [277.3, 205.7], [292.0, 204.0]
+      ]
     }
   ],
-
   "quiz": {
     "pick": 3,
     "items": [
-      { "id": "transit", "group": "transit", "correct": 2, "sdg": 11, "url": "agenda" },
-      { "id": "sdg17",   "group": "agenda",  "correct": 1, "sdg": 17, "url": "agenda" },
-      { "id": "agenda",  "group": "agenda",  "correct": 1, "sdg": 17, "url": "agenda" },
-      { "id": "food",    "group": "food",    "correct": 2, "sdg": 12, "url": "agenda" },
-      { "id": "water",   "group": "water",   "correct": 1, "sdg": 6,  "url": "agenda" },
-      { "id": "bees",    "group": "bees",    "correct": 2, "sdg": 15, "url": "agenda" }
+      {
+        "id": "transit",
+        "group": "transit",
+        "correct": 2,
+        "sdg": 11,
+        "url": "agenda"
+      },
+      {
+        "id": "sdg17",
+        "group": "agenda",
+        "correct": 1,
+        "sdg": 17,
+        "url": "agenda"
+      },
+      {
+        "id": "agenda",
+        "group": "agenda",
+        "correct": 1,
+        "sdg": 17,
+        "url": "agenda"
+      },
+      {
+        "id": "food",
+        "group": "food",
+        "correct": 2,
+        "sdg": 12,
+        "url": "agenda"
+      },
+      {
+        "id": "water",
+        "group": "water",
+        "correct": 1,
+        "sdg": 6,
+        "url": "agenda"
+      },
+      {
+        "id": "bees",
+        "group": "bees",
+        "correct": 2,
+        "sdg": 15,
+        "url": "agenda"
+      }
     ]
   },
-
   "programs": {
-    "networking": { "url": "networking", "sdg": 17, "phases": [ { "id": "event", "until": "2027-01-12", "date": "2027-01-12" } ] },
-    "awards":     { "url": "awards", "sdg": 12, "showUntil": "2027-06-30",
-                    "phases": [ { "id": "register", "until": "2026-11-11", "date": "2026-11-11" },
-                                { "id": "submit", "until": "2027-04-24", "date": "2027-04-24" },
-                                { "id": "ceremony", "until": "2027-05-20" } ] },
-    "youth":      { "url": "youth", "sdg": 4, "phases": [] },
-    "training":   { "url": "training", "sdg": 4, "phases": [] },
-    "supply":     { "url": "supply", "sdg": 17, "phases": [ { "id": "apply", "until": "2026-11-11", "date": "2026-11-11" } ] },
-    "adults":     { "url": "adults", "sdg": 4, "phases": [] },
-    "agenda":     { "url": "agenda", "sdg": 17, "phases": [] },
-    "edd":        { "url": "edd", "sdg": 4, "phases": [] },
-    "home":       { "url": "home", "sdg": 4, "phases": [] }
+    "networking": {
+      "url": "networking",
+      "sdg": 17,
+      "phases": [
+        {
+          "id": "event",
+          "until": "2027-01-12",
+          "date": "2027-01-12"
+        }
+      ]
+    },
+    "awards": {
+      "url": "awards",
+      "sdg": 12,
+      "showUntil": "2027-06-30",
+      "phases": [
+        {
+          "id": "register",
+          "until": "2026-11-11",
+          "date": "2026-11-11"
+        },
+        {
+          "id": "submit",
+          "until": "2027-04-24",
+          "date": "2027-04-24"
+        },
+        {
+          "id": "ceremony",
+          "until": "2027-05-20"
+        }
+      ]
+    },
+    "youth": {
+      "url": "youth",
+      "sdg": 4,
+      "phases": []
+    },
+    "training": {
+      "url": "training",
+      "sdg": 4,
+      "phases": []
+    },
+    "supply": {
+      "url": "supply",
+      "sdg": 17,
+      "phases": [
+        {
+          "id": "apply",
+          "until": "2026-11-11",
+          "date": "2026-11-11"
+        }
+      ]
+    },
+    "adults": {
+      "url": "adults",
+      "sdg": 4,
+      "phases": []
+    },
+    "agenda": {
+      "url": "agenda",
+      "sdg": 17,
+      "phases": []
+    },
+    "edd": {
+      "url": "edd",
+      "sdg": 4,
+      "phases": []
+    },
+    "home": {
+      "url": "home",
+      "sdg": 4,
+      "phases": []
+    }
   },
-
   "audiences": [
-    { "id": "family",  "programs": ["networking", "youth", "awards"] },
-    { "id": "youth",   "programs": ["awards", "youth", "networking"] },
-    { "id": "edu",     "programs": ["training", "supply", "networking"] },
-    { "id": "curious", "programs": ["networking", "adults", "agenda"] }
+    {
+      "id": "family",
+      "programs": [
+        "networking",
+        "youth",
+        "awards"
+      ]
+    },
+    {
+      "id": "youth",
+      "programs": [
+        "awards",
+        "youth",
+        "networking"
+      ]
+    },
+    {
+      "id": "edu",
+      "programs": [
+        "training",
+        "supply",
+        "networking"
+      ]
+    },
+    {
+      "id": "curious",
+      "programs": [
+        "networking",
+        "adults",
+        "agenda"
+      ]
+    }
   ],
-
-  "take": { "defaults": ["networking", "home"], "max": 4 }
+  "take": {
+    "defaults": [
+      "networking",
+      "home"
+    ],
+    "max": 4
+  },
+  "motifs": {
+    "_info": "Formen, die der Faden nur im Anziehungs-Loop bildet (ohne eigene Geschichte). form: Linienzug im Format 400 × 400. Text: translations.json → attract.motifs.<id>.",
+    "plant": {
+      "sdg": 15,
+      "form": [
+        [200, 372], [190.0, 372.0], [180.0, 372.0], [170.0, 372.0], [160.0, 372.0], [150.0, 372.0], [147.2, 358.0], [144.4, 344.0], [141.6, 330.0], [138.8, 316.0], [136.0, 302.0], [148.8, 302.0], [161.6, 302.0], [174.4, 302.0], [187.2, 302.0], [200.0, 302.0], [212.8, 302.0], [225.6, 302.0], [238.4, 302.0], [251.2, 302.0], [264.0, 302.0], [261.2, 316.0], [258.4, 330.0], [255.6, 344.0], [252.8, 358.0], [250.0, 372.0], [240.0, 372.0], [230.0, 372.0], [220.0, 372.0], [210.0, 372.0], [200.0, 372.0], [200.0, 359.8], [200.0, 347.6], [200.0, 335.4], [200.0, 323.2], [200.0, 311.0], [200.0, 298.8], [200.0, 286.6], [200.0, 274.4], [200.0, 262.2], [200.0, 250.0], [213.5, 252.5], [226.6, 254.1], [238.7, 254.4], [249.6, 252.6], [259.0, 248.4], [266.8, 241.8], [273.1, 232.8], [278.2, 221.7], [282.3, 209.3], [286.0, 196.0], [286.0, 196.0], [275.7, 198.7], [265.5, 201.6], [255.7, 205.0], [246.3, 209.1], [237.4, 214.1], [229.1, 219.9], [221.3, 226.6], [213.9, 234.0], [206.9, 241.9], [200.0, 250.0], [200.0, 239.2], [200.0, 228.4], [200.0, 217.6], [200.0, 206.8], [200.0, 196.0], [195.2, 183.7], [190.0, 172.2], [184.1, 162.1], [177.1, 154.0], [169.0, 148.2], [159.5, 144.8], [148.9, 143.7], [137.2, 144.6], [124.8, 146.9], [112.0, 150.0], [112.0, 150.0], [119.4, 157.3], [126.9, 164.3], [134.7, 170.8], [142.9, 176.7], [151.5, 181.7], [160.5, 185.9], [169.9, 189.2], [179.7, 191.9], [189.8, 194.1], [200.0, 196.0], [200.0, 185.1], [200.0, 174.3], [200.0, 163.4], [200.0, 152.6], [200.0, 141.7], [200.0, 130.9], [200.0, 120.0], [208.1, 116.9], [215.7, 113.5], [222.4, 109.6], [227.8, 105.1], [231.8, 99.7], [234.2, 93.5], [235.2, 86.4], [234.9, 78.7], [233.7, 70.5], [232.0, 62.0], [232.0, 62.0], [227.1, 66.9], [222.4, 71.8], [217.9, 76.9], [214.0, 82.3], [210.5, 88.0], [207.6, 93.9], [205.1, 100.1], [203.2, 106.6], [201.5, 113.3], [200.0, 120.0], [200.0, 108.0]
+      ]
+    }
+  }
 }

@@ -3,6 +3,9 @@
  * 17 Fasern (eine pro Nachhaltigkeitsziel) winden sich als Zopf um eine gemeinsame Mittellinie.
  * Die Mittellinie nimmt je Bildschirm eine andere Form an (Welle, Weg durch Knoten, Schlinge,
  * Wäscheleine) und gleitet weich von einer Form zur nächsten. Berührungen ziehen den Faden an.
+ * Version 2: Der Faden kann sich selbst zu Gegenständen formen (Form „path“), lässt sich greifen,
+ * spannen und federt beim Loslassen nach. Zwei Darstellungen: „glow“ (leuchtend, dunkler Grund)
+ * und „ink“ (farbiges Garn mit weichem Schatten, heller Grund).
  * Koordinaten: Bühnenpixel 1080 × 1920.
  */
 (function (global) {
@@ -10,9 +13,9 @@
 
   var W = 1080, H = 1920;
   var QUALITY = {
-    high:     { points: 96, scaleCap: 2,   glow: true,  particles: 42 },
-    balanced: { points: 72, scaleCap: 1.5, glow: true,  particles: 26 },
-    low:      { points: 52, scaleCap: 1,   glow: false, particles: 0 }
+    high:     { points: 96, dense: 230, scaleCap: 2,   glow: true,  particles: 42 },
+    balanced: { points: 72, dense: 170, scaleCap: 1.5, glow: true,  particles: 26 },
+    low:      { points: 52, dense: 120, scaleCap: 1,   glow: false, particles: 0 }
   };
   var ORDER = ['high', 'balanced', 'low'];
 
@@ -73,6 +76,14 @@
       }
       return pts;
     },
+    // Fertige Polylinie (z. B. ein Gegenstand aus Faden), atmet leicht
+    path: function (t, o) {
+      var b = o.breathe != null ? o.breathe : 3, poly = o.poly, out = new Array(poly.length);
+      for (var i = 0; i < poly.length; i++) {
+        out[i] = [poly[i][0] + b * Math.sin(t * 0.9 + i * 0.05), poly[i][1] + b * Math.cos(t * 0.8 + i * 0.045)];
+      }
+      return out;
+    },
     through: function (t, o) {
       var pts = o.points.map(function (p, i) {
         return [p[0] + 7 * Math.sin(t * 0.9 + i * 1.7), p[1] + 7 * Math.cos(t * 0.7 + i * 1.3)];
@@ -120,46 +131,70 @@
   function Fil(canvas, opts) {
     this.canvas = canvas;
     this.ctx = canvas.getContext('2d');
-    this.colorsHex = opts.colors;
-    this.colors = opts.colors.map(function (h, i) {
-      var rgb = hexToRgb(h);
-      return lighten(rgb, i >= 15 ? 0.38 : 0.16); // dunkle Ziele 16/17 für den dunklen Grund aufhellen
-    });
     this.reduced = !!opts.reducedMotion;
     this.particlesOn = opts.particles !== false;
     this.autoQuality = opts.quality === 'auto' || !opts.quality;
     this.qualityName = this.autoQuality ? 'high' : opts.quality;
     this.q = QUALITY[this.qualityName];
+    this.setTheme({ colors: opts.colors, mode: opts.mode || 'glow' });
     this.n = this.q.points;
-    this.cur = new Float32Array(this.n * 2);
-    this.tgt = new Float32Array(this.n * 2);
-    this.disp = new Float32Array(this.n * 2);
+    this._alloc(this.n);
     this.scale = 1;
     this.t = 0;
     this.last = 0;
     this.running = false;
-    this.shape = { fn: SHAPES.attract, opts: {}, width: 70, deform: true, twist: 2.2, spin: 0.55, alpha: 1 };
+    this.shape = { fn: SHAPES.attract, opts: {}, width: 70, deform: true, twist: 2.2, spin: 0.55, alpha: 1, morph: 2.6, dense: false };
     this.width = 70; this.alpha = 1;
     this.pointer = { x: 0, y: 0, active: false, power: 0 };
+    this.grab = { on: false, i: -1, x: 0, y: 0, pull: 0, maxPull: 0 };
+    this.grabbed = false; this.pullDistance = 0; this.tension = 0;
     this.ripples = [];
+    this.pulses = [];
     this.frameTimes = [];
     this.slowSince = 0;
     this.fps = 60;
     this.particles = [];
-    var seed = resample(this.shape.fn(0, {}), this.n, this.cur);
-    this.cur.set(seed);
+    resample(this.shape.fn(0, {}), this.n, this.cur);
     this._spawnParticles();
     this._loop = this._loop.bind(this);
   }
 
+  Fil.prototype._alloc = function (n) {
+    this.cur = new Float32Array(n * 2); this.tgt = new Float32Array(n * 2);
+    this.disp = new Float32Array(n * 2); this.vel = new Float32Array(n * 2);
+  };
+  // Punktzahl wechseln, ohne die aktuelle Lage zu verlieren
+  Fil.prototype._setN = function (n) {
+    if (n === this.n) return;
+    var poly = [], i;
+    for (i = 0; i < this.n; i++) poly.push([this.cur[i * 2] + this.disp[i * 2], this.cur[i * 2 + 1] + this.disp[i * 2 + 1]]);
+    this.n = n; this._alloc(n);
+    resample(poly, n, this.cur);
+    this.grab.on = false; this.grabbed = false;
+  };
+
+  /** Farben und Darstellung: mode 'glow' (dunkler Grund) oder 'ink' (heller Grund). */
+  Fil.prototype.setTheme = function (theme) {
+    this.mode = theme.mode === 'ink' ? 'ink' : 'glow';
+    var glow = this.mode === 'glow';
+    this.colorsHex = theme.colors;
+    this.colors = theme.colors.map(function (h) {
+      var rgb = hexToRgb(h), lum = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255;
+      return glow ? lighten(rgb, lum < 0.3 ? 0.38 : 0.16) : rgb;
+    });
+    this.backColors = this.colors.map(function (c) { return glow ? c : lighten(c, 0.55); });
+    this._spawnParticles();
+  };
+
   Fil.prototype._spawnParticles = function () {
     this.particles = [];
-    if (!this.particlesOn || this.reduced) return;
-    for (var i = 0; i < this.q.particles; i++) {
+    if (!this.particlesOn || this.reduced || !this.q || !this.colors) return;
+    var count = this.mode === 'ink' ? Math.round(this.q.particles * 0.6) : this.q.particles;
+    for (var i = 0; i < count; i++) {
       this.particles.push({
         x: Math.random() * W, y: Math.random() * H,
         vx: (Math.random() - 0.5) * 6, vy: -4 - Math.random() * 10,
-        r: 1.4 + Math.random() * 2.6, c: this.colors[i % 17], a: 0.15 + Math.random() * 0.3, ph: Math.random() * 6.28
+        r: 1.4 + Math.random() * 2.6, c: this.colors[i % this.colors.length], a: 0.15 + Math.random() * 0.3, ph: Math.random() * 6.28
       });
     }
   };
@@ -178,11 +213,7 @@
     this.autoQuality = !!auto;
     if (name === this.qualityName) return;
     this.qualityName = name; this.q = QUALITY[name];
-    var old = this.cur, oldN = this.n, poly = [];
-    for (var i = 0; i < oldN; i++) poly.push([old[i * 2], old[i * 2 + 1]]);
-    this.n = this.q.points;
-    this.cur = new Float32Array(this.n * 2); this.tgt = new Float32Array(this.n * 2); this.disp = new Float32Array(this.n * 2);
-    resample(poly, this.n, this.cur);
+    this._setN(this.shape.dense ? this.q.dense : this.q.points);
     this._spawnParticles();
     if (this.lastStage) this.resize(this.lastStage, this.lastDpr);
   };
@@ -190,8 +221,11 @@
   Fil.prototype.setReduced = function (on) { this.reduced = !!on; this._spawnParticles(); };
 
   /**
-   * Form setzen. name: attract | through | loop | line | horizon
-   * opts: Formparameter + { width, deform, twist, spin, alpha }
+   * Form setzen. name: attract | path | through | loop | line | horizon
+   * opts: Formparameter + { width, deform, twist, spin, alpha, morph, dense }
+   *   deform: Faden lässt sich greifen und ziehen
+   *   morph:  wie schnell er in die neue Form gleitet (größer = schneller)
+   *   dense:  viele Stützpunkte, für detailreiche Formen wie Gegenstände
    */
   Fil.prototype.setShape = function (name, opts) {
     opts = opts || {};
@@ -199,19 +233,62 @@
       fn: SHAPES[name] || SHAPES.horizon, opts: opts,
       width: opts.width != null ? opts.width : 40,
       deform: !!opts.deform, twist: opts.twist || 2.4, spin: opts.spin != null ? opts.spin : 0.5,
-      alpha: opts.alpha != null ? opts.alpha : 1
+      alpha: opts.alpha != null ? opts.alpha : 1,
+      morph: opts.morph || 2.6, dense: !!opts.dense || name === 'path'
     };
+    this._setN(this.shape.dense ? this.q.dense : this.q.points);
+    if (!this.shape.deform) this._release();
   };
 
   Fil.prototype.lineY = function (o, x) { return lineY(o, x); };
 
+  /** Berührung: greift den Faden, wenn der Finger nah genug ist. */
   Fil.prototype.touch = function (x, y, active) {
-    this.pointer.x = x; this.pointer.y = y; this.pointer.active = active;
+    var p = this.pointer, g = this.grab;
+    p.x = x; p.y = y;
+    if (active && !p.active) this._tryGrab(x, y);
+    if (!active && p.active) this._release();
+    p.active = active;
+    if (g.on) {
+      g.x = x; g.y = y;
+      var ix = g.i * 2, dx = x - this.cur[ix], dy = y - this.cur[ix + 1];
+      g.pull = Math.sqrt(dx * dx + dy * dy);
+      g.maxPull = Math.max(g.maxPull, g.pull);
+      this.pullDistance = g.maxPull;
+    }
+  };
+  Fil.prototype._tryGrab = function (x, y) {
+    var g = this.grab;
+    g.on = false; g.maxPull = 0; this.pullDistance = 0;
+    if (!this.shape.deform) return;
+    var best = -1, bd = (this.shape.opts.grabRadius || 280);
+    bd *= bd;
+    for (var i = 0; i < this.n; i++) {
+      var dx = this.cur[i * 2] + this.disp[i * 2] - x, dy = this.cur[i * 2 + 1] + this.disp[i * 2 + 1] - y, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    }
+    if (best < 0) return;
+    g.on = true; g.i = best; g.x = x; g.y = y; g.pull = 0;
+    this.grabbed = true;
+  };
+  Fil.prototype._release = function () {
+    var g = this.grab;
+    if (g.on) {
+      var ix = g.i * 2;
+      this.ripple(this.cur[ix] + this.disp[ix], this.cur[ix + 1] + this.disp[ix + 1]);
+    }
+    g.on = false; this.grabbed = false;
   };
 
   Fil.prototype.ripple = function (x, y) {
     if (this.reduced) return;
     this.ripples.push({ x: x, y: y, t: 0 });
+  };
+
+  /** Lichtimpuls, der den Faden entlangläuft (Navigation, Entdeckung). dir: 1 vorwärts, -1 rückwärts */
+  Fil.prototype.pulse = function (dir) {
+    if (this.reduced) return;
+    this.pulses.push({ p: dir === -1 ? 1.15 : -0.15, dir: dir === -1 ? -1 : 1 });
   };
 
   Fil.prototype.start = function () {
@@ -251,30 +328,47 @@
   Fil.prototype._step = function (dt) {
     var speed = this.reduced ? 0.25 : 1;
     this.t += dt * speed;
-    var sh = this.shape, n = this.n;
+    var sh = this.shape, n = this.n, g = this.grab;
     resample(sh.fn(this.t, sh.opts), n, this.tgt);
-    var k = 1 - Math.exp(-dt * (this.reduced ? 6 : 2.6));
-    var kd = 1 - Math.exp(-dt * 7);
+    var k = 1 - Math.exp(-dt * (this.reduced ? 6 : sh.morph));
     var p = this.pointer;
-    p.power += ((p.active && sh.deform ? 1 : 0) - p.power) * (1 - Math.exp(-dt * 5));
+    p.power += ((p.active && sh.deform && !g.on ? 1 : 0) - p.power) * (1 - Math.exp(-dt * 5));
+    // Feder-Dämpfer: gegriffener Faden folgt dem Finger, schwingt beim Loslassen nach
+    var K = this.reduced ? 160 : 95, C = this.reduced ? 26 : 10.5;
+    var sigma = n * 0.075, gi = g.on ? g.i : -1;
+    var gdx = 0, gdy = 0;
+    if (g.on) { gdx = g.x - this.cur[gi * 2]; gdy = g.y - this.cur[gi * 2 + 1]; }
+    var tens = 0;
     for (var i = 0; i < n; i++) {
       var ix = i * 2, iy = ix + 1;
       this.cur[ix] += (this.tgt[ix] - this.cur[ix]) * k;
       this.cur[iy] += (this.tgt[iy] - this.cur[iy]) * k;
       var wantX = 0, wantY = 0;
-      if (p.power > 0.01) {
+      if (g.on) {
+        var di = (i - gi) / sigma, w = Math.exp(-di * di);
+        wantX = gdx * w; wantY = gdy * w;
+      } else if (p.power > 0.01) {
         var dx = p.x - this.cur[ix], dy = p.y - this.cur[iy];
-        var w = Math.exp(-(dx * dx + dy * dy) / (2 * 230 * 230)) * 0.55 * p.power;
-        wantX = dx * w; wantY = dy * w;
+        var ww = Math.exp(-(dx * dx + dy * dy) / (2 * 230 * 230)) * 0.45 * p.power;
+        wantX = dx * ww; wantY = dy * ww;
       }
-      this.disp[ix] += (wantX - this.disp[ix]) * kd;
-      this.disp[iy] += (wantY - this.disp[iy]) * kd;
+      var ax = K * (wantX - this.disp[ix]) - C * this.vel[ix];
+      var ay = K * (wantY - this.disp[iy]) - C * this.vel[iy];
+      this.vel[ix] += ax * dt; this.vel[iy] += ay * dt;
+      this.disp[ix] += this.vel[ix] * dt; this.disp[iy] += this.vel[iy] * dt;
     }
+    if (g.on) tens = Math.min(1, g.pull / 320);
+    this.tension += (tens - this.tension) * (1 - Math.exp(-dt * 8));
     this.width += (sh.width - this.width) * k;
     this.alpha += (sh.alpha - this.alpha) * k;
     for (var r = this.ripples.length - 1; r >= 0; r--) {
       this.ripples[r].t += dt;
       if (this.ripples[r].t > 1.4) this.ripples.splice(r, 1);
+    }
+    for (var s = this.pulses.length - 1; s >= 0; s--) {
+      var pu = this.pulses[s];
+      pu.p += pu.dir * dt * 1.25;
+      if (pu.p > 1.2 || pu.p < -0.2) this.pulses.splice(s, 1);
     }
     for (var q = 0; q < this.particles.length; q++) {
       var pa = this.particles[q];
@@ -285,17 +379,16 @@
   };
 
   Fil.prototype._draw = function () {
-    var ctx = this.ctx, s = this.scale, n = this.n, sh = this.shape;
+    var ctx = this.ctx, s = this.scale, n = this.n, sh = this.shape, ink = this.mode === 'ink';
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     ctx.setTransform(s, 0, 0, s, 0, 0);
-    ctx.globalCompositeOperation = 'lighter';
+    ctx.globalCompositeOperation = ink ? 'source-over' : 'lighter';
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
 
-    // Partikel
     for (var q = 0; q < this.particles.length; q++) {
       var pa = this.particles[q];
-      ctx.fillStyle = rgba(pa.c, pa.a * (0.6 + 0.4 * Math.sin(pa.ph)) * this.alpha);
+      ctx.fillStyle = rgba(pa.c, pa.a * (ink ? 0.7 : 1) * (0.6 + 0.4 * Math.sin(pa.ph)) * this.alpha);
       ctx.beginPath(); ctx.arc(pa.x, pa.y, pa.r, 0, 6.2832); ctx.fill();
     }
 
@@ -307,33 +400,69 @@
       var tx = px[b] - px[a], ty = py[b] - py[a], l = Math.sqrt(tx * tx + ty * ty) || 1;
       nx[i] = -ty / l; ny[i] = tx / l;
     }
-    // Wellen von Berührungen verbreitern den Zopf kurz
-    var rip = new Float32Array(n);
-    for (var r = 0; r < this.ripples.length; r++) {
+    // Wellen (Berührung) und Lichtimpulse (Navigation) entlang des Fadens
+    var rip = new Float32Array(n), lit = new Float32Array(n), r;
+    for (r = 0; r < this.ripples.length; r++) {
       var R = this.ripples[r], front = R.t * 900, fade = 1 - R.t / 1.4;
       for (i = 0; i < n; i++) {
         var dd = Math.abs(Math.hypot(px[i] - R.x, py[i] - R.y) - front);
         rip[i] += Math.exp(-dd * dd / (2 * 90 * 90)) * fade;
       }
     }
+    for (r = 0; r < this.pulses.length; r++) {
+      var P = this.pulses[r].p;
+      for (i = 0; i < n; i++) { var du = (i / (n - 1) - P) / 0.045; lit[i] += Math.exp(-du * du); }
+    }
+    // Spannung: um den gegriffenen Punkt rücken die Fasern zusammen
+    var gi = this.grab.on ? this.grab.i : -1, tension = this.tension, sigma = n * 0.09;
 
-    var Wd = this.width, tw = sh.twist, t = this.t, spin = sh.spin, alpha = this.alpha;
+    var Wd = this.width, tw = sh.twist, t = this.t, spin = sh.spin * (1 + 2.2 * tension), alpha = this.alpha;
     var glow = this.q.glow;
-    var xs = new Float32Array(n), ys = new Float32Array(n), depth = new Float32Array(n);
-    for (var k = 0; k < 17; k++) {
-      var phase = k * 6.2832 / 17, col = this.colors[k];
+
+    if (ink) { // weicher Schatten unter dem Garn: räumliche Tiefe auf hellem Grund
+      for (var pass = 0; pass < 2; pass++) {
+        ctx.beginPath();
+        for (i = 0; i < n; i++) { var yy = py[i] + 16 + pass * 6; if (i === 0) ctx.moveTo(px[i] + 4, yy); else ctx.lineTo(px[i] + 4, yy); }
+        ctx.strokeStyle = 'rgba(22,22,21,' + (pass ? 0.035 : 0.06) * alpha + ')';
+        ctx.lineWidth = Wd * 2 + (pass ? 30 : 12);
+        ctx.stroke();
+      }
+    }
+
+    var xs = new Float32Array(n), ys = new Float32Array(n), depth = new Float32Array(n), boost = new Float32Array(n);
+    for (i = 0; i < n; i++) boost[i] = Math.min(1.4, lit[i]);
+    var nc = this.colors.length;
+    for (var k = 0; k < nc; k++) {
+      var phase = k * 6.2832 / nc, col = this.colors[k], back = this.backColors[k];
       for (i = 0; i < n; i++) {
         var u = i / (n - 1);
         var ang = 6.2832 * tw * u + phase + t * spin;
-        var off = Wd * (1 + 1.6 * rip[i]) * Math.sin(ang);
+        var pinch = 1;
+        if (gi >= 0) { var dg = (i - gi) / sigma; pinch = 1 - 0.7 * tension * Math.exp(-dg * dg); }
+        var off = Wd * pinch * (1 + 1.6 * rip[i] + 0.5 * boost[i]) * Math.sin(ang);
         xs[i] = px[i] + nx[i] * off;
         ys[i] = py[i] + ny[i] * off;
         depth[i] = Math.cos(ang);
       }
-      // hinten liegende Abschnitte zuerst, dünn und gedämpft
-      this._strokeWhere(xs, ys, depth, false, rgba(col, 0.32 * alpha), 2.2);
-      if (glow) this._strokeWhere(xs, ys, depth, true, rgba(col, 0.10 * alpha), 11);
-      this._strokeWhere(xs, ys, depth, true, rgba(col, 0.92 * alpha), 3.4);
+      if (ink) {
+        this._strokeWhere(xs, ys, depth, false, rgba(back, 0.95 * alpha), 2.6);
+        this._strokeWhere(xs, ys, depth, true, rgba(col, alpha), 4.2 + 1.2 * tension);
+      } else {
+        this._strokeWhere(xs, ys, depth, false, rgba(col, 0.32 * alpha), 2.2);
+        if (glow) this._strokeWhere(xs, ys, depth, true, rgba(col, (0.10 + 0.12 * tension) * alpha), 11);
+        this._strokeWhere(xs, ys, depth, true, rgba(col, 0.92 * alpha), 3.4 + 1.2 * tension);
+      }
+    }
+    // Lichtimpulse: heller Schimmer über dem Zopf
+    if (this.pulses.length) {
+      ctx.globalCompositeOperation = ink ? 'source-over' : 'lighter';
+      for (i = 1; i < n; i++) {
+        var v = Math.min(1, (lit[i] + lit[i - 1]) / 2);
+        if (v < 0.04) continue;
+        ctx.strokeStyle = ink ? 'rgba(255,255,255,' + (0.75 * v) + ')' : 'rgba(255,244,214,' + (0.55 * v) + ')';
+        ctx.lineWidth = Wd * 1.2 + 8;
+        ctx.beginPath(); ctx.moveTo(px[i - 1], py[i - 1]); ctx.lineTo(px[i], py[i]); ctx.stroke();
+      }
     }
     ctx.globalCompositeOperation = 'source-over';
   };

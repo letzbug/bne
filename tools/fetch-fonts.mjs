@@ -2,7 +2,7 @@
 /*
  * Lädt die beiden Schriften einmalig herunter und legt sie lokal ab,
  * damit die Stele auch beim allerersten Start ohne Internet richtig aussieht.
- *   Bricolage Grotesque (Titel) und Atkinson Hyperlegible Next (Text), beide SIL Open Font License.
+ *   Bricolage Grotesque (Titel Original Dark), Lexend (Titel BNE Corporate), Atkinson Hyperlegible Next (Text); alle SIL Open Font License.
  * Aufruf (im Projektordner, mit Internet):   node tools/fetch-fonts.mjs
  * Ergebnis: assets/fonts/*.woff2 und css/fonts.css. Danach kann die Google-Fonts-Zeile
  * in index.html entfernt werden (siehe README, Abschnitt Schriften).
@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_URL = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap';
+const CSS_URL = 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Lexend:wght@500..800&display=swap';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
 const KEEP = new Set(['latin', 'latin-ext']); // Französisch, Deutsch, Englisch, Luxemburgisch
 

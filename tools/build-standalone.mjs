@@ -22,6 +22,9 @@ const data = {
   content: json('content/content.json'),
   i18n: json('content/translations.json')
 };
+// Logo als Text mitgeben, damit es auch ohne Server eingebettet und umgefärbt werden kann
+const logo = data.config.brand && data.config.brand.logo;
+if (logo && /\.svg$/i.test(logo) && existsSync(join(root, logo))) data.logoSvg = read(logo);
 
 // Stylesheets einbetten
 html = html.replace(/<link rel="stylesheet" href="(css\/[^"]+)">/g, (m, href) => {

@@ -1,0 +1,64 @@
+{
+  "_info": "Betriebseinstellungen der Stele. Texte: translations.json. Inhalte und Links: content.json. Viele Werte lassen sich zum Testen per URL überschreiben, siehe README.",
+  "version": "1.0.0-demo",
+  "defaultLanguage": "fr",
+  "languages": ["fr", "de", "en"],
+
+  "location": {
+    "_info": "Name des aktuellen Standorts (z. B. Einkaufszentrum). Leer = nicht anzeigen. Per URL: ?location=Name",
+    "name": ""
+  },
+
+  "demoBadge": true,
+
+  "idle": {
+    "_info": "Sekunden ohne Berührung bis zur Rückfrage, danach Countdown bis zum Neustart. Auf dem QR-Bildschirm gilt die längere Zeit, weil Menschen dort scannen, ohne zu tippen.",
+    "timeoutSec": 60,
+    "takeScreenTimeoutSec": 120,
+    "warningSec": 10
+  },
+
+  "attract": {
+    "objects": ["tshirt", "phone", "choco", "ride"],
+    "drawSec": 2.4,
+    "holdSec": 6
+  },
+
+  "quiz": { "totalSeconds": 30 },
+
+  "animation": {
+    "_info": "quality: auto | high | balanced | low. 'auto' senkt die Qualität selbst, wenn die Hardware nicht mitkommt.",
+    "quality": "auto",
+    "reducedMotion": false,
+    "particles": true
+  },
+
+  "kiosk": {
+    "_info": "requestFullscreen: Browser-Vollbild bei der ersten Berührung (nur mit ?kiosk=1 oder true). Der echte Kiosk-Modus wird am Gerät eingerichtet, siehe docs/KIOSK.md.",
+    "requestFullscreen": false,
+    "hideCursor": false,
+    "dailyReloadAt": "04:30",
+    "adminHoldSec": 4
+  },
+
+  "brand": {
+    "_info": "Offizielles Logo als SVG unter assets/brand/ ablegen und den Pfad hier eintragen. Leer = Textmarke 'bne.lu'.",
+    "logo": "",
+    "wordmark": "bne.lu"
+  },
+
+  "qr": {
+    "ecl": "M",
+    "utm": {
+      "_info": "Optional: Kampagnenparameter an QR-Links anhängen, damit bne.lu Aufrufe je Standort zählen kann. Nur nach Absprache mit der BNE und ihrem Datenschutzhinweis aktivieren.",
+      "enabled": false,
+      "source": "bne-stele",
+      "medium": "qr"
+    }
+  },
+
+  "stats": {
+    "_info": "Optionale, anonyme Zähler nur auf dem Gerät (keine Personen, keine Zeitstempel einzelner Besuche). Standard: aus.",
+    "enabled": false
+  }
+}

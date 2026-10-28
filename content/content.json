@@ -1,0 +1,99 @@
+{
+  "_info": "Struktur der Inhalte. Alle sichtbaren Texte stehen in translations.json unter denselben IDs. Datumsangaben JJJJ-MM-TT, jeweils einschließlich. 'checked' = Datum, an dem der Link geprüft wurde; 'pattern' = Link nach dem Sprachmuster von bne.lu gebildet, vor dem Einsatz öffnen und prüfen.",
+
+  "sdgColors": {
+    "1": "#E5243B", "2": "#DDA63A", "3": "#4C9F38", "4": "#C5192D", "5": "#FF3A21", "6": "#26BDE2",
+    "7": "#FCC30B", "8": "#A21942", "9": "#FD6925", "10": "#DD1367", "11": "#FD9D24", "12": "#BF8B2E",
+    "13": "#3F7E44", "14": "#0A97D9", "15": "#56C02B", "16": "#00689D", "17": "#19486A"
+  },
+
+  "urls": {
+    "home":        { "fr": "https://bne.lu/", "de": "https://bne.lu/de/", "en": "https://bne.lu/en/", "checked": "2026-10-28" },
+    "networking":  { "fr": "https://bne.lu/bnenetworking/", "de": "https://bne.lu/de/bnenetworking/", "en": "https://bne.lu/en/bnenetworking/", "checked": "2026-10-28" },
+    "awards":      { "fr": "https://bne.lu/bneawards/", "de": "https://bne.lu/de/bneawards/", "en": "https://bne.lu/en/bneawards/", "checked": "2026-10-28" },
+    "supply":      { "fr": "https://bne.lu/bnesupply/", "de": "https://bne.lu/de/bnesupply/", "en": "https://bne.lu/en/bnesupply/", "checked": "2026-10-28" },
+    "training":    { "fr": "https://bne.lu/bnetraining/", "de": "https://bne.lu/de/bnetraining/", "en": "https://bne.lu/en/bnetraining/", "checked": "2026-10-28" },
+    "youth":       { "fr": "https://bne.lu/les-offres/?public=bne-youth", "de": "https://bne.lu/de/les-offres/?public=bne-youth", "en": "https://bne.lu/en/les-offres/?public=bne-youth", "checked": "2026-10-28" },
+    "adults":      { "fr": "https://bne.lu/les-offres/?public=bne-adultes", "de": "https://bne.lu/de/les-offres/?public=bne-adultes", "en": "https://bne.lu/en/les-offres/?public=bne-adultes", "checked": "2026-10-28" },
+    "agenda":      { "fr": "https://bne.lu/lagenda-2030-et-les-odd/", "de": "https://bne.lu/de/lagenda-2030-et-les-odd/", "en": "https://bne.lu/en/lagenda-2030-et-les-odd/", "checked": "2026-10-28 (fr)", "pattern": ["de", "en"] },
+    "edd":         { "fr": "https://bne.lu/leducation-au-developpement-durable-edd/", "de": "https://bne.lu/de/leducation-au-developpement-durable-edd/", "en": "https://bne.lu/en/leducation-au-developpement-durable-edd/", "checked": "2026-10-28" },
+    "offer_tshirt": { "fr": "https://bne.lu/les_offres/dou-vient-mon-t-shirt/", "de": "https://bne.lu/de/les_offres/dou-vient-mon-t-shirt/", "en": "https://bne.lu/en/les_offres/dou-vient-mon-t-shirt/", "checked": "2026-10-28" },
+    "offer_phone":  { "fr": "https://bne.lu/les_offres/minerais-et-intelligence-artificelle/", "de": "https://bne.lu/de/les_offres/minerais-et-intelligence-artificelle/", "en": "https://bne.lu/en/les_offres/minerais-et-intelligence-artificelle/", "checked": "2026-10-28" },
+    "offer_choco":  { "fr": "https://bne.lu/les_offres/chocotastique-le-voyage-dune-cabosse/", "de": "https://bne.lu/de/les_offres/chocotastique-le-voyage-dune-cabosse/", "en": "https://bne.lu/en/les_offres/chocotastique-le-voyage-dune-cabosse/", "checked": "2026-10-28" },
+    "offer_ride":   { "fr": "https://bne.lu/les_offres/fresque-de-la-mobilite-redange-lu/", "de": "https://bne.lu/de/les_offres/fresque-de-la-mobilite-redange-lu/", "en": "https://bne.lu/en/les_offres/fresque-de-la-mobilite-redange-lu/", "checked": "2026-10-28" }
+  },
+
+  "hub": [
+    { "id": "objects", "screen": "objects", "icon": "tag",   "sdg": 12 },
+    { "id": "quiz",    "screen": "quiz",    "icon": "timer", "sdg": 7 },
+    { "id": "bne",     "screen": "bne",     "icon": "links", "sdg": 4 },
+    { "id": "local",   "screen": "local",   "icon": "pin",   "sdg": 11 }
+  ],
+
+  "objects": [
+    {
+      "id": "tshirt",
+      "threads": [ { "id": "field", "sdg": 6 }, { "id": "hands", "sdg": 8 }, { "id": "journey", "sdg": 13 }, { "id": "after", "sdg": 12 } ],
+      "options": ["keep", "repair", "give"],
+      "offer": { "url": "offer_tshirt", "kind": "groups" },
+      "drawing": "M150 62 C162 96 238 96 250 62 L306 78 L366 132 L330 188 L292 164 L292 344 L108 344 L108 164 L70 188 L34 132 L94 78 Z"
+    },
+    {
+      "id": "phone",
+      "threads": [ { "id": "metals", "sdg": 12 }, { "id": "mines", "sdg": 8 }, { "id": "energy", "sdg": 7 }, { "id": "data", "sdg": 9 } ],
+      "options": ["keep", "repair", "recycle"],
+      "offer": { "url": "offer_phone", "kind": "groups" },
+      "drawing": "M150 40 H250 Q282 40 282 72 V328 Q282 360 250 360 H150 Q118 360 118 328 V72 Q118 40 150 40 Z M180 66 H220 M178 334 H222"
+    },
+    {
+      "id": "choco",
+      "threads": [ { "id": "tree", "sdg": 15 }, { "id": "families", "sdg": 1 }, { "id": "share", "sdg": 10 }, { "id": "fair", "sdg": 12 } ],
+      "options": ["origin", "fair", "savour"],
+      "offer": { "url": "offer_choco", "kind": "groups" },
+      "drawing": "M112 70 H288 V330 H112 Z M171 70 V250 M229 70 V250 M112 130 H288 M112 190 H288 M112 250 L136 238 L160 254 L184 238 L208 254 L232 238 L256 254 L288 240"
+    },
+    {
+      "id": "ride",
+      "threads": [ { "id": "air", "sdg": 11 }, { "id": "climate", "sdg": 13 }, { "id": "health", "sdg": 3 }, { "id": "network", "sdg": 11 } ],
+      "options": ["active", "transit", "share"],
+      "offer": { "url": "offer_ride", "kind": "public" },
+      "drawing": "M48 268 A70 70 0 1 1 188 268 A70 70 0 1 1 48 268 Z M212 268 A70 70 0 1 1 352 268 A70 70 0 1 1 212 268 Z M118 268 L168 160 L204 268 Z M168 160 L276 164 L204 268 M276 164 L282 268 M150 148 H190 M276 164 L268 128 H302"
+    }
+  ],
+
+  "quiz": {
+    "pick": 3,
+    "items": [
+      { "id": "transit", "group": "transit", "correct": 2, "sdg": 11, "url": "agenda" },
+      { "id": "sdg17",   "group": "agenda",  "correct": 1, "sdg": 17, "url": "agenda" },
+      { "id": "agenda",  "group": "agenda",  "correct": 1, "sdg": 17, "url": "agenda" },
+      { "id": "food",    "group": "food",    "correct": 2, "sdg": 12, "url": "agenda" },
+      { "id": "water",   "group": "water",   "correct": 1, "sdg": 6,  "url": "agenda" },
+      { "id": "bees",    "group": "bees",    "correct": 2, "sdg": 15, "url": "agenda" }
+    ]
+  },
+
+  "programs": {
+    "networking": { "url": "networking", "sdg": 17, "phases": [ { "id": "event", "until": "2027-01-12", "date": "2027-01-12" } ] },
+    "awards":     { "url": "awards", "sdg": 12, "showUntil": "2027-06-30",
+                    "phases": [ { "id": "register", "until": "2026-11-11", "date": "2026-11-11" },
+                                { "id": "submit", "until": "2027-04-24", "date": "2027-04-24" },
+                                { "id": "ceremony", "until": "2027-05-20" } ] },
+    "youth":      { "url": "youth", "sdg": 4, "phases": [] },
+    "training":   { "url": "training", "sdg": 4, "phases": [] },
+    "supply":     { "url": "supply", "sdg": 17, "phases": [ { "id": "apply", "until": "2026-11-11", "date": "2026-11-11" } ] },
+    "adults":     { "url": "adults", "sdg": 4, "phases": [] },
+    "agenda":     { "url": "agenda", "sdg": 17, "phases": [] },
+    "edd":        { "url": "edd", "sdg": 4, "phases": [] },
+    "home":       { "url": "home", "sdg": 4, "phases": [] }
+  },
+
+  "audiences": [
+    { "id": "family",  "programs": ["networking", "youth", "awards"] },
+    { "id": "youth",   "programs": ["awards", "youth", "networking"] },
+    { "id": "edu",     "programs": ["training", "supply", "networking"] },
+    { "id": "curious", "programs": ["networking", "adults", "agenda"] }
+  ],
+
+  "take": { "defaults": ["networking", "home"], "max": 4 }
+}

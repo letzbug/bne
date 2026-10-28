@@ -1,0 +1,10 @@
+{
+  "name": "Tire le fil | bne.lu",
+  "short_name": "Tire le fil",
+  "start_url": "./?kiosk=1",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0E2C31",
+  "theme_color": "#0E2C31",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

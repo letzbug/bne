@@ -1,0 +1,1662 @@
+{
+  "_info": "Alle sichtbaren Texte der BNE Experience in FR, DE und EN. Jede Sprache hat exakt dieselbe Schlüsselstruktur. Platzhalter wie {n}, {date} oder {org} nicht übersetzen. \\u202f = schmales geschütztes Leerzeichen (französische Typografie), \\u00a0 = geschütztes Leerzeichen, \\u2060 = unsichtbarer Wortverbinder (verhindert Umbruch in kurzen Bindestrich-Wörtern wie T-shirt). Nach jeder Änderung prüfen: node tools/check-translations.mjs",
+  "fr": {
+    "meta": {
+      "language": "Français",
+      "locale": "fr-LU"
+    },
+    "brand": {
+      "descriptor": "Éducation au développement durable",
+      "experience": "Tire le fil"
+    },
+    "ui": {
+      "home": "Accueil",
+      "back": "Retour",
+      "next": "Suivant",
+      "close": "Fermer",
+      "yourThread": "Ton fil",
+      "takeAway": "Emporter",
+      "discoveries": {
+        "zero": "Encore vide",
+        "one": "{n} découverte",
+        "other": "{n} découvertes"
+      },
+      "added": "Ajouté à ton fil",
+      "scan": "Scanne avec ton téléphone",
+      "language": "Langue",
+      "prototype": "Prototype",
+      "idle": {
+        "title": "Tu es encore là\u202f?",
+        "text": "Touche l’écran pour continuer.",
+        "countdown": "Nouveau départ dans {s} s",
+        "stay": "Je suis là"
+      },
+      "error": {
+        "title": "Petite pause technique",
+        "text": "L’installation redémarre dans quelques secondes."
+      }
+    },
+    "attract": {
+      "title": "Tire le fil.",
+      "tagline": "Derrière chaque objet, tout un monde.",
+      "touch": "Touche l’écran pour commencer"
+    },
+    "hub": {
+      "title": "Quel fil veux-\u2060tu tirer\u202f?",
+      "lead": "Choisis. Chaque fil mène quelque part.",
+      "objects": {
+        "title": "L’étiquette cachée",
+        "text": "Ce que racontent les objets du quotidien"
+      },
+      "quiz": {
+        "title": "Le défi 30 secondes",
+        "text": "3 questions, en solo ou en famille"
+      },
+      "bne": {
+        "title": "C’est quoi, la BNE\u202f?",
+        "text": "Le développement durable en une minute"
+      },
+      "local": {
+        "title": "La BNE près de chez toi",
+        "text": "Activités, concours et rendez-vous au Luxembourg"
+      }
+    },
+    "objects": {
+      "title": "L’étiquette cachée",
+      "lead": "Ici, tout a une étiquette avec un prix. Mais l’histoire de chaque objet reste cachée. Choisis-en un.",
+      "all": "Tous les objets",
+      "pullHint": "Tire un fil ou touche un nœud.",
+      "progress": {
+        "one": "{n} fil tiré sur {total}",
+        "other": "{n} fils tirés sur {total}"
+      },
+      "next": "Et après\u202f?",
+      "decisionLead": "Il n’y a pas de mauvaise réponse. Chaque idée prolonge le fil.",
+      "offerLead": "Pour aller plus loin au Luxembourg",
+      "offerBy": "Proposé par {org}",
+      "offerLangs": "Langues\u202f: {langs}",
+      "offerGroups": "Atelier pour classes et groupes\u202f: à proposer à ton école ou ta Maison Relais.",
+      "offerPublic": "Atelier ouvert au grand public et aux familles.",
+      "another": "Un autre objet",
+      "items": {
+        "tshirt": {
+          "name": "Le t-\u2060shirt",
+          "hook": "Combien de mains ont touché ton t-\u2060shirt\u202f?",
+          "threads": {
+            "field": {
+              "label": "Le champ",
+              "title": "Tout commence dans un champ",
+              "text": "Le coton pousse dans des champs, souvent très loin d’ici. Pour grandir, il a besoin de soleil, de terre et de beaucoup d’eau."
+            },
+            "hands": {
+              "label": "Les mains",
+              "title": "Beaucoup de mains",
+              "text": "Cueillir, filer, teindre, coudre, emballer, vendre\u202f: des personnes dans plusieurs pays travaillent pour un seul t-\u2060shirt. Leurs conditions de travail ne sont pas toujours justes."
+            },
+            "journey": {
+              "label": "Le voyage",
+              "title": "Souvent un long voyage",
+              "text": "Du champ à la boutique, un t-\u2060shirt passe souvent par plusieurs pays, parfois par plusieurs continents."
+            },
+            "after": {
+              "label": "L’après",
+              "title": "Une deuxième vie",
+              "text": "Plus un vêtement est porté longtemps, plus l’eau, l’énergie et le travail qu’il contient servent longtemps."
+            }
+          },
+          "decision": {
+            "question": "Et ce t-\u2060shirt, que pourrait-il devenir\u202f?",
+            "options": {
+              "keep": {
+                "label": "Je le porte longtemps",
+                "insight": "Le vêtement le plus durable est souvent celui qu’on a déjà."
+              },
+              "repair": {
+                "label": "Je le répare ou le transforme",
+                "insight": "Un bouton, un ourlet, un patch\u202f: réparer prolonge l’histoire de toutes les mains qui l’ont fabriqué."
+              },
+              "give": {
+                "label": "Je le donne ou je l’échange",
+                "insight": "Donné ou échangé, il continue son chemin chez quelqu’un d’autre."
+              }
+            }
+          },
+          "offer": {
+            "title": "D’où vient mon T-\u2060shirt\u202f?",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "Un atelier pour découvrir d’où viennent nos vêtements, de quoi ils sont faits et dans quelles conditions ils sont produits.",
+            "audience": "Pour les classes des cycles 3 et 4",
+            "langs": "allemand, français"
+          }
+        },
+        "phone": {
+          "name": "Le smartphone",
+          "hook": "Qu’est-\u2060ce qui se cache dans ton téléphone\u202f?",
+          "threads": {
+            "metals": {
+              "label": "Les métaux",
+              "title": "Un petit morceau de la Terre",
+              "text": "Un smartphone contient de nombreux matériaux différents, dont des métaux venus de mines du monde entier."
+            },
+            "mines": {
+              "label": "Les mines",
+              "title": "Des conditions parfois dures",
+              "text": "Certains minerais sont extraits dans des conditions sociales et environnementales difficiles, pour les gens comme pour la nature."
+            },
+            "energy": {
+              "label": "L’énergie",
+              "title": "Avant même de l’allumer",
+              "text": "Le fabriquer demande beaucoup d’énergie et de ressources\u202f: une grande partie de son empreinte vient de sa fabrication."
+            },
+            "data": {
+              "label": "Les données",
+              "title": "Un fil invisible",
+              "text": "Chaque photo, vidéo ou message voyage par des réseaux et des centres de données qui consomment eux aussi de l’électricité."
+            }
+          },
+          "decision": {
+            "question": "Et quand il commence à fatiguer\u202f?",
+            "options": {
+              "keep": {
+                "label": "Je le garde plus longtemps",
+                "insight": "Comme une grande partie de son impact vient de sa fabrication, chaque année de plus compte."
+              },
+              "repair": {
+                "label": "Je le fais réparer",
+                "insight": "Écran fissuré, batterie faible\u202f: beaucoup de pannes se réparent."
+              },
+              "recycle": {
+                "label": "Je le rapporte au recyclage",
+                "insight": "Rapporté dans un point de collecte, il ne dort pas dans un tiroir\u202f: une partie de ses matériaux peut être récupérée."
+              }
+            }
+          },
+          "offer": {
+            "title": "Minerais et intelligence artificielle",
+            "org": "Fondation Partage Luxembourg",
+            "text": "Un atelier sur la face cachée du numérique\u202f: les liens entre l’extraction des minerais, nos appareils et l’intelligence artificielle.",
+            "audience": "Pour les classes de 2e et 1re, à partir de 15 ans",
+            "langs": "anglais, français, luxembourgeois"
+          }
+        },
+        "choco": {
+          "name": "Le chocolat",
+          "hook": "D’où vient ton chocolat\u202f?",
+          "threads": {
+            "tree": {
+              "label": "L’arbre",
+              "title": "Tout commence sur un arbre",
+              "text": "Le cacao pousse sur des arbres, dans les régions chaudes et humides proches de l’équateur. Ses fruits s’appellent des cabosses."
+            },
+            "families": {
+              "label": "Les familles",
+              "title": "De petites exploitations",
+              "text": "Une grande partie du cacao est cultivée par des familles sur de petites exploitations. Beaucoup vivent avec très peu."
+            },
+            "share": {
+              "label": "Le partage",
+              "title": "Qui gagne quoi\u202f?",
+              "text": "Sur le prix d’une tablette, seule une petite partie revient aux personnes qui cultivent le cacao."
+            },
+            "fair": {
+              "label": "Le label",
+              "title": "Un prix plus juste",
+              "text": "Le commerce équitable cherche à garantir aux producteurs un prix plus juste et de meilleures conditions de travail."
+            }
+          },
+          "decision": {
+            "question": "Et la prochaine fois\u202f?",
+            "options": {
+              "origin": {
+                "label": "Je regarde d’où il vient",
+                "insight": "Lire l’emballage, c’est déjà tirer le fil."
+              },
+              "fair": {
+                "label": "Je cherche un label équitable",
+                "insight": "Ton choix au magasin est relié à la vie des producteurs, à des milliers de kilomètres."
+              },
+              "savour": {
+                "label": "Je le savoure lentement",
+                "insight": "Savourer, c’est aussi honorer le long chemin d’une cabosse jusqu’à toi."
+              }
+            }
+          },
+          "offer": {
+            "title": "Chocotastique\u202f! Le voyage d’une cabosse",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "Un atelier pour découvrir d’où vient le cacao, comment vivent celles et ceux qui le cultivent et qui profite du commerce du chocolat.",
+            "audience": "Pour les classes des cycles 3 et 4",
+            "langs": "allemand, français"
+          }
+        },
+        "ride": {
+          "name": "Ton trajet",
+          "hook": "Comment as-\u2060tu fait le chemin jusqu’ici\u202f?",
+          "threads": {
+            "air": {
+              "label": "L’air",
+              "title": "Des rues qui respirent",
+              "text": "Moins de moteurs en marche, c’est un air plus propre et des rues plus calmes pour tout le monde."
+            },
+            "climate": {
+              "label": "Le climat",
+              "title": "Un grand levier",
+              "text": "En Europe, les transports font partie des plus grandes sources de gaz à effet de serre."
+            },
+            "health": {
+              "label": "La santé",
+              "title": "Bouger fait du bien",
+              "text": "Marcher ou pédaler, même sur une partie du trajet, fait du bien au corps et à la tête."
+            },
+            "network": {
+              "label": "Le réseau",
+              "title": "Gratuit pour tout le monde",
+              "text": "Au Luxembourg, bus, trains et tram sont gratuits en 2e\u00a0classe depuis mars 2020."
+            }
+          },
+          "decision": {
+            "question": "Et ton prochain trajet, tu l’imagines comment\u202f?",
+            "options": {
+              "active": {
+                "label": "À pied ou à vélo",
+                "insight": "Même un bout à pied avant le bus change la donne\u202f: c’est bon pour toi et pour la ville."
+              },
+              "transit": {
+                "label": "En bus, train ou tram",
+                "insight": "Gratuit en 2e\u00a0classe, le réseau public est ouvert à tout le monde au Luxembourg."
+              },
+              "share": {
+                "label": "En covoiturage",
+                "insight": "Une voiture mieux remplie, c’est moins de voitures sur la route."
+              }
+            }
+          },
+          "offer": {
+            "title": "Fresque de la Mobilité",
+            "org": "äerdschëff asbl",
+            "text": "Un atelier ludique et collaboratif de 3 heures pour comprendre l’impact de nos déplacements et imaginer des solutions adaptées au Luxembourg.",
+            "audience": "Grand public et familles, à Redange-sur-Attert",
+            "langs": "français"
+          }
+        }
+      }
+    },
+    "quiz": {
+      "title": "Le défi 30 secondes",
+      "lead": "3 questions. 30 secondes. Tu devines, tu découvres.",
+      "start": "C’est parti",
+      "question": "Question {n} sur {total}",
+      "seconds": "secondes",
+      "noTimer": "Prends ton temps",
+      "right": "Bien vu\u202f!",
+      "wrong": "Surprenant, non\u202f?",
+      "timeUp": "Temps écoulé, mais la curiosité continue.",
+      "correctAnswer": "Bonne réponse",
+      "yourAnswer": "Ta réponse",
+      "nextQuestion": "Question suivante",
+      "finish": "Voir le résultat",
+      "doneTitle": "Défi terminé\u202f!",
+      "score": "Bonnes intuitions\u202f: {n} sur {total}",
+      "doneText": "Et {total} découvertes de plus sur ton fil.",
+      "again": "Rejouer avec d’autres questions",
+      "source": "Source\u202f: {s}",
+      "items": {
+        "transit": {
+          "q": "Au Luxembourg, un trajet en bus, en train ou en tram en 2e\u00a0classe coûte…",
+          "options": [
+            "2 euros",
+            "4 euros",
+            "Rien du tout"
+          ],
+          "explain": "Depuis le 1er mars 2020, les transports publics sont gratuits en 2e\u00a0classe dans tout le pays. Le Luxembourg a été le premier pays à le faire.",
+          "source": "Gouvernement luxembourgeois, 2020"
+        },
+        "sdg17": {
+          "q": "En 2015, tous les pays de l’ONU ont adopté des objectifs communs pour un monde plus durable. Combien\u202f?",
+          "options": [
+            "5",
+            "17",
+            "100"
+          ],
+          "explain": "17 objectifs de développement durable, à atteindre d’ici 2030\u202f: c’est l’Agenda 2030. Les 17 couleurs de notre fil, ce sont eux.",
+          "source": "Nations unies, Agenda 2030"
+        },
+        "agenda": {
+          "q": "Pourquoi parle-t-on d’«\u202fAgenda 2030\u202f»\u202f?",
+          "options": [
+            "Il a été écrit en 2030",
+            "Ses objectifs sont à atteindre d’ici 2030",
+            "Il contient 2030 règles"
+          ],
+          "explain": "Adopté en 2015 par les 193 États membres de l’ONU, l’Agenda 2030 fixe un horizon commun. Au Luxembourg aussi, écoles et associations s’en servent pour agir.",
+          "source": "Nations unies, Agenda 2030"
+        },
+        "food": {
+          "q": "Dans le monde, où gaspille-t-on le plus de nourriture\u202f?",
+          "options": [
+            "Dans les magasins",
+            "Dans les restaurants et cantines",
+            "À la maison"
+          ],
+          "explain": "Environ 60\u202f% de la nourriture gaspillée l’est dans les foyers. La bonne nouvelle\u202f: c’est là qu’on peut agir dès ce soir.",
+          "source": "PNUE, Food Waste Index Report 2024"
+        },
+        "water": {
+          "q": "Dans le monde, quelle activité utilise le plus d’eau douce\u202f?",
+          "options": [
+            "Les douches et les bains",
+            "L’agriculture",
+            "Les usines"
+          ],
+          "explain": "Environ 70\u202f% de l’eau douce prélevée dans le monde sert à l’agriculture. Notre nourriture a soif\u202f!",
+          "source": "FAO, AQUASTAT"
+        },
+        "bees": {
+          "q": "Parmi les principales cultures alimentaires du monde, combien profitent des pollinisateurs comme les abeilles\u202f?",
+          "options": [
+            "Environ 1 sur 10",
+            "Environ 1 sur 3",
+            "Plus de 3 sur 4"
+          ],
+          "explain": "Plus de 75\u202f% des principales cultures alimentaires profitent, au moins en partie, des pollinisateurs\u202f: pommes, fraises, cacao, café…",
+          "source": "IPBES, 2016"
+        }
+      }
+    },
+    "bne": {
+      "step": "Étape {n} sur {total}",
+      "p1": {
+        "title": "Vivre bien aujourd’hui, sans abîmer demain.",
+        "text": "C’est l’idée du développement durable\u202f: prendre soin en même temps de la planète, des gens et de l’économie. Touche chaque nœud pour le relier à toi.",
+        "planet": "La planète",
+        "people": "Les gens",
+        "economy": "L’économie",
+        "you": "Toi",
+        "done": "Tout est lié. Et tu es au milieu."
+      },
+      "p2": {
+        "title": "Ce fil a 17 couleurs.",
+        "text": "Ce sont les 17 objectifs que tous les pays de l’ONU se sont fixés pour 2030. Touche une couleur.",
+        "goal": "Objectif {n}"
+      },
+      "p3": {
+        "title": "La BNE, c’est apprendre à voir ces liens… et à agir.",
+        "text": "À l’école, dans les Maisons Relais, les associations et au quotidien. À tout âge.",
+        "name": "BNE veut dire «\u202fBildung fir nohalteg Entwécklung\u202f»\u202f: l’éducation au développement durable.",
+        "understand": "Comprendre",
+        "understandText": "Voir comment tout est relié.",
+        "reflect": "Réfléchir",
+        "reflectText": "Se poser des questions, se faire un avis.",
+        "act": "Agir",
+        "actText": "Passer aux idées concrètes, ensemble.",
+        "cta": "Découvrir la BNE près de chez toi"
+      }
+    },
+    "local": {
+      "title": "La BNE près de chez toi",
+      "ask": "Aujourd’hui, tu es plutôt…",
+      "for": "Pour toi",
+      "change": "Changer de profil",
+      "tapTag": "Touche une étiquette pour en savoir plus.",
+      "audiences": {
+        "family": {
+          "title": "En famille",
+          "text": "Des idées à partager avec les enfants"
+        },
+        "youth": {
+          "title": "Jeune, entre 6 et 25 ans",
+          "text": "Des projets où ta voix compte"
+        },
+        "edu": {
+          "title": "Dans l’éducation",
+          "text": "École, Maison Relais, maison de jeunes…"
+        },
+        "curious": {
+          "title": "Simplement par curiosité",
+          "text": "Des rendez-vous ouverts à tous"
+        }
+      }
+    },
+    "programs": {
+      "networking": {
+        "name": "BNE Networking 2027",
+        "short": "La grande journée de l’EDD",
+        "text": "Plus de 70 stands interactifs d’ONG, d’administrations et de structures éducatives au Forum Geesseknäppchen. Ouvert à tous, sans inscription.",
+        "phases": {
+          "event": "Le {date}, de 11\u00a0h à 15\u00a0h"
+        },
+        "after": "Le rendez-vous annuel des acteurs de l’éducation au développement durable au Luxembourg."
+      },
+      "awards": {
+        "name": "BNE Awards 2027",
+        "short": "Un concours pour les 6 à 25 ans",
+        "text": "Thème\u202f: consommer et produire de façon responsable (ODD 12). Les équipes de jeunes sont accompagnées par une école, une Maison Relais, une maison de jeunes ou une association.",
+        "phases": {
+          "register": "Inscription des équipes jusqu’au {date}",
+          "submit": "Projets à déposer jusqu’au {date}",
+          "ceremony": "Remise des prix les 19 et 20 mai 2027"
+        },
+        "after": "Découvre les projets des jeunes sur bne.lu."
+      },
+      "youth": {
+        "name": "BNE Youth",
+        "short": "Ateliers, visites, escape games",
+        "text": "Ateliers, visites, rallyes, escape games et expositions pour les écoles, Maisons Relais et maisons de jeunes, partout dans le pays et toute l’année.",
+        "phases": {},
+        "after": "Une idée pour ta classe\u202f? Montre ce code à ton école ou à ta Maison Relais."
+      },
+      "training": {
+        "name": "BNE Training",
+        "short": "Se former à l’EDD",
+        "text": "Des formations continues pour le personnel enseignant et éducatif et pour les adultes engagés\u202f: séminaires, hospitations, formations en ligne ou au catalogue de l’IFEN.",
+        "phases": {},
+        "after": "Toute l’année scolaire, sur l’ensemble du territoire."
+      },
+      "supply": {
+        "name": "BNE Supply",
+        "short": "Un coup de pouce pour vos projets",
+        "text": "Un soutien financier pour des projets durables portés par et pour les jeunes\u202f: jusqu’à 25\u202f000\u00a0€ pour de l’infrastructure ou du matériel, jusqu’à 2\u202f500\u00a0€ pour un événement.",
+        "phases": {
+          "apply": "Demandes jusqu’au {date}"
+        },
+        "after": "Priorité aux écoles, ouvert aussi aux Maisons Relais, maisons de jeunes et associations."
+      },
+      "adults": {
+        "name": "BNE Adultes",
+        "short": "Pour les adultes",
+        "text": "Formations, visites guidées et ateliers pour s’engager dans la transition écologique et sociale, à titre personnel, en association ou en entreprise.",
+        "phases": {},
+        "after": "Pour les particuliers, les associations et les entreprises."
+      },
+      "agenda": {
+        "name": "Agenda 2030 et ODD",
+        "short": "Les 17 objectifs expliqués",
+        "text": "Comprendre les 17 objectifs de développement durable et trouver des conseils pour agir au Luxembourg.",
+        "phases": {},
+        "after": "Sur le portail bne.lu"
+      },
+      "edd": {
+        "name": "L’éducation au développement durable",
+        "short": "Tout sur l’EDD",
+        "text": "Ses objectifs, ses méthodes et le cadre européen de compétences GreenComp.",
+        "phases": {},
+        "after": "Sur le portail bne.lu"
+      },
+      "home": {
+        "name": "bne.lu",
+        "short": "Le portail national",
+        "text": "Offres, acteurs et actualités de l’éducation au développement durable au Luxembourg.",
+        "phases": {},
+        "after": "Ateliers, visites, formations et bien plus."
+      }
+    },
+    "take": {
+      "title": "Emporte ton fil",
+      "lead": "Scanne un code avec ton téléphone pour continuer à la maison.",
+      "empty": "Ton fil est encore vide. Voici deux bons points de départ.",
+      "privacy": "Rien n’est enregistré. Ton fil disparaît quand tu pars.",
+      "finish": "J’ai terminé",
+      "continue": "Continuer à explorer"
+    },
+    "sdg": {
+      "1": "Pas de pauvreté",
+      "2": "Faim «\u202fzéro\u202f»",
+      "3": "Bonne santé et bien-\u2060être",
+      "4": "Éducation de qualité",
+      "5": "Égalité entre les sexes",
+      "6": "Eau propre et assainissement",
+      "7": "Énergie propre et d’un coût abordable",
+      "8": "Travail décent et croissance économique",
+      "9": "Industrie, innovation et infrastructure",
+      "10": "Inégalités réduites",
+      "11": "Villes et communautés durables",
+      "12": "Consommation et production responsables",
+      "13": "Lutte contre les changements climatiques",
+      "14": "Vie aquatique",
+      "15": "Vie terrestre",
+      "16": "Paix, justice et institutions efficaces",
+      "17": "Partenariats pour la réalisation des objectifs",
+      "label": "ODD {n}"
+    },
+    "admin": {
+      "title": "Maintenance",
+      "version": "Version",
+      "location": "Lieu",
+      "none": "non défini",
+      "date": "Date utilisée",
+      "quality": "Qualité d’animation",
+      "fps": "Images par seconde",
+      "reduced": "Animations réduites",
+      "yes": "Oui",
+      "no": "Non",
+      "i18n": "Contrôle des traductions",
+      "i18nOk": "Complet dans les 3 langues",
+      "i18nMissing": "{n} textes manquants",
+      "connection": "Connexion",
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "stats": "Statistiques locales",
+      "statsOff": "Désactivées dans config.json",
+      "statsLine": "{sessions} sessions, {completed} expériences terminées",
+      "statsReset": "Remettre à zéro",
+      "reload": "Recharger",
+      "testReset": "Tester le retour à l’accueil",
+      "q": {
+        "auto": "Auto",
+        "high": "Haute",
+        "balanced": "Équilibrée",
+        "low": "Économe"
+      }
+    },
+    "preview": {
+      "caption": "Aperçu de l’écran tactile 50 pouces en portrait. La souris remplace le doigt.",
+      "file": "Ouvre ce dossier avec un petit serveur local (voir README) ou utilise la version autonome dans dist/."
+    }
+  },
+  "de": {
+    "meta": {
+      "language": "Deutsch",
+      "locale": "de-LU"
+    },
+    "brand": {
+      "descriptor": "Bildung für nachhaltige Entwicklung",
+      "experience": "Zieh am Faden"
+    },
+    "ui": {
+      "home": "Start",
+      "back": "Zurück",
+      "next": "Weiter",
+      "close": "Schließen",
+      "yourThread": "Dein Faden",
+      "takeAway": "Mitnehmen",
+      "discoveries": {
+        "zero": "Noch leer",
+        "one": "{n} Entdeckung",
+        "other": "{n} Entdeckungen"
+      },
+      "added": "An deinen Faden geknüpft",
+      "scan": "Mit dem Handy scannen",
+      "language": "Sprache",
+      "prototype": "Prototyp",
+      "idle": {
+        "title": "Bist du noch da?",
+        "text": "Tippe auf den Bildschirm, um weiterzumachen.",
+        "countdown": "Neustart in {s} s",
+        "stay": "Ich bin noch da"
+      },
+      "error": {
+        "title": "Kurze technische Pause",
+        "text": "Die Installation startet in wenigen Sekunden neu."
+      }
+    },
+    "attract": {
+      "title": "Zieh am Faden.",
+      "tagline": "Hinter jedem Ding steckt eine ganze Welt.",
+      "touch": "Berühre den Bildschirm, um zu starten"
+    },
+    "hub": {
+      "title": "An welchem Faden ziehst du?",
+      "lead": "Such dir einen aus. Jeder Faden führt irgendwohin.",
+      "objects": {
+        "title": "Das versteckte Etikett",
+        "text": "Was Alltagsdinge erzählen"
+      },
+      "quiz": {
+        "title": "Die 30-Sekunden-Challenge",
+        "text": "3 Fragen, allein oder mit der Familie"
+      },
+      "bne": {
+        "title": "Was ist BNE?",
+        "text": "Nachhaltige Entwicklung in einer Minute"
+      },
+      "local": {
+        "title": "BNE in deiner Nähe",
+        "text": "Aktivitäten, Wettbewerbe und Termine in Luxemburg"
+      }
+    },
+    "objects": {
+      "title": "Das versteckte Etikett",
+      "lead": "Hier hat alles ein Etikett mit einem Preis. Die Geschichte jedes Gegenstands aber bleibt verborgen. Such dir einen aus.",
+      "all": "Alle Gegenstände",
+      "pullHint": "Zieh an einem Faden oder tippe auf einen Knoten.",
+      "progress": {
+        "one": "{n} von {total} Fäden gezogen",
+        "other": "{n} von {total} Fäden gezogen"
+      },
+      "next": "Und dann?",
+      "decisionLead": "Es gibt keine falsche Antwort. Jede Idee spinnt den Faden weiter.",
+      "offerLead": "Mehr dazu in Luxemburg",
+      "offerBy": "Ein Angebot von {org}",
+      "offerLangs": "Sprachen: {langs}",
+      "offerGroups": "Workshop für Klassen und Gruppen: Schlag ihn deiner Schule oder Maison Relais vor.",
+      "offerPublic": "Ein Workshop für alle, auch für Familien.",
+      "another": "Anderer Gegenstand",
+      "items": {
+        "tshirt": {
+          "name": "Das T-\u2060Shirt",
+          "hook": "Wie viele Hände haben dein T-\u2060Shirt schon berührt?",
+          "threads": {
+            "field": {
+              "label": "Das Feld",
+              "title": "Alles beginnt auf einem Feld",
+              "text": "Baumwolle wächst auf Feldern, oft sehr weit weg von hier. Sie braucht Sonne, Boden und sehr viel Wasser."
+            },
+            "hands": {
+              "label": "Die Hände",
+              "title": "Viele Hände",
+              "text": "Pflücken, spinnen, färben, nähen, verpacken, verkaufen: Menschen in mehreren Ländern arbeiten an einem einzigen T-\u2060Shirt. Ihre Arbeitsbedingungen sind nicht immer fair."
+            },
+            "journey": {
+              "label": "Die Reise",
+              "title": "Oft eine weite Reise",
+              "text": "Vom Feld bis in den Laden reist ein T-\u2060Shirt oft durch mehrere Länder, manchmal über mehrere Kontinente."
+            },
+            "after": {
+              "label": "Danach",
+              "title": "Ein zweites Leben",
+              "text": "Je länger ein Kleidungsstück getragen wird, desto länger nützen das Wasser, die Energie und die Arbeit, die darin stecken."
+            }
+          },
+          "decision": {
+            "question": "Und was könnte aus diesem T-\u2060Shirt werden?",
+            "options": {
+              "keep": {
+                "label": "Ich trage es lange",
+                "insight": "Das nachhaltigste Kleidungsstück ist oft das, das man schon hat."
+              },
+              "repair": {
+                "label": "Ich flicke es oder mache etwas Neues daraus",
+                "insight": "Ein Knopf, ein Saum, ein Flicken: Reparieren verlängert die Geschichte all der Hände, die es gemacht haben."
+              },
+              "give": {
+                "label": "Ich verschenke oder tausche es",
+                "insight": "Verschenkt oder getauscht, geht seine Reise bei jemand anderem weiter."
+              }
+            }
+          },
+          "offer": {
+            "title": "D’où vient mon T-\u2060shirt\u202f?",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "Ein Workshop, der zeigt, woher unsere Kleidung kommt, woraus sie besteht und unter welchen Bedingungen sie hergestellt wird.",
+            "audience": "Für Klassen der Zyklen 3 und 4",
+            "langs": "Deutsch, Französisch"
+          }
+        },
+        "phone": {
+          "name": "Das Smartphone",
+          "hook": "Was steckt eigentlich in deinem Handy?",
+          "threads": {
+            "metals": {
+              "label": "Die Metalle",
+              "title": "Ein kleines Stück Erde",
+              "text": "Ein Smartphone enthält viele verschiedene Materialien, darunter Metalle aus Minen auf der ganzen Welt."
+            },
+            "mines": {
+              "label": "Die Minen",
+              "title": "Manchmal harte Bedingungen",
+              "text": "Manche Rohstoffe werden unter schwierigen sozialen und ökologischen Bedingungen abgebaut, für Menschen wie für die Natur."
+            },
+            "energy": {
+              "label": "Die Energie",
+              "title": "Noch bevor du es einschaltest",
+              "text": "Seine Herstellung braucht viel Energie und Rohstoffe: Ein großer Teil seines Fußabdrucks entsteht schon dabei."
+            },
+            "data": {
+              "label": "Die Daten",
+              "title": "Ein unsichtbarer Faden",
+              "text": "Jedes Foto, jedes Video und jede Nachricht reist durch Netze und Rechenzentren, die ebenfalls Strom verbrauchen."
+            }
+          },
+          "decision": {
+            "question": "Und wenn es langsam schwächelt?",
+            "options": {
+              "keep": {
+                "label": "Ich behalte es länger",
+                "insight": "Weil ein großer Teil seiner Wirkung aus der Herstellung kommt, zählt jedes zusätzliche Jahr."
+              },
+              "repair": {
+                "label": "Ich lasse es reparieren",
+                "insight": "Gesprungenes Display, schwacher Akku: Viele Schäden lassen sich reparieren."
+              },
+              "recycle": {
+                "label": "Ich bringe es zum Recycling",
+                "insight": "An einer Sammelstelle abgegeben, verstaubt es nicht in der Schublade: Ein Teil seiner Materialien kann zurückgewonnen werden."
+              }
+            }
+          },
+          "offer": {
+            "title": "Minerais et intelligence artificielle",
+            "org": "Fondation Partage Luxembourg",
+            "text": "Ein Workshop über die verborgene Seite der Digitalwelt: die Verbindungen zwischen Rohstoffabbau, unseren Geräten und künstlicher Intelligenz.",
+            "audience": "Für Klassen der 2e und 1re, ab 15 Jahren",
+            "langs": "Englisch, Französisch, Luxemburgisch"
+          }
+        },
+        "choco": {
+          "name": "Die Schokolade",
+          "hook": "Woher kommt deine Schokolade?",
+          "threads": {
+            "tree": {
+              "label": "Der Baum",
+              "title": "Alles beginnt an einem Baum",
+              "text": "Kakao wächst an Bäumen, in warmen, feuchten Regionen nahe dem Äquator. Seine Früchte heißen Kakaoschoten."
+            },
+            "families": {
+              "label": "Die Familien",
+              "title": "Kleine Familienbetriebe",
+              "text": "Ein großer Teil des Kakaos wird von Familien auf kleinen Höfen angebaut. Viele von ihnen leben von sehr wenig."
+            },
+            "share": {
+              "label": "Die Verteilung",
+              "title": "Wer verdient was?",
+              "text": "Vom Preis einer Tafel kommt nur ein kleiner Teil bei den Menschen an, die den Kakao anbauen."
+            },
+            "fair": {
+              "label": "Das Siegel",
+              "title": "Ein gerechterer Preis",
+              "text": "Der faire Handel will den Erzeugerfamilien einen gerechteren Preis und bessere Arbeitsbedingungen sichern."
+            }
+          },
+          "decision": {
+            "question": "Und beim nächsten Mal?",
+            "options": {
+              "origin": {
+                "label": "Ich schaue, woher sie kommt",
+                "insight": "Die Verpackung lesen heißt schon, am Faden zu ziehen."
+              },
+              "fair": {
+                "label": "Ich achte auf ein Fair-Trade-Siegel",
+                "insight": "Deine Wahl im Laden ist mit dem Leben der Erzeugerfamilien verbunden, Tausende Kilometer entfernt."
+              },
+              "savour": {
+                "label": "Ich genieße sie ganz langsam",
+                "insight": "Genießen heißt auch, den langen Weg einer Kakaoschote bis zu dir zu würdigen."
+              }
+            }
+          },
+          "offer": {
+            "title": "Chocotastique\u202f! Le voyage d’une cabosse",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "Ein Workshop: Woher kommt der Kakao, wie leben die Menschen, die ihn anbauen, und wer profitiert vom Schokoladenhandel?",
+            "audience": "Für Klassen der Zyklen 3 und 4",
+            "langs": "Deutsch, Französisch"
+          }
+        },
+        "ride": {
+          "name": "Dein Weg hierher",
+          "hook": "Wie bist du heute hierhergekommen?",
+          "threads": {
+            "air": {
+              "label": "Die Luft",
+              "title": "Straßen, die atmen",
+              "text": "Weniger laufende Motoren bedeuten sauberere Luft und ruhigere Straßen für alle."
+            },
+            "climate": {
+              "label": "Das Klima",
+              "title": "Ein großer Hebel",
+              "text": "In Europa gehört der Verkehr zu den größten Quellen von Treibhausgasen."
+            },
+            "health": {
+              "label": "Die Gesundheit",
+              "title": "Bewegung tut gut",
+              "text": "Zu Fuß gehen oder Rad fahren, selbst auf einem Teil des Weges, tut Körper und Kopf gut."
+            },
+            "network": {
+              "label": "Das Netz",
+              "title": "Kostenlos für alle",
+              "text": "In Luxemburg sind Bus, Bahn und Tram seit März 2020 in der 2.\u00a0Klasse kostenlos."
+            }
+          },
+          "decision": {
+            "question": "Und wie stellst du dir deinen nächsten Weg vor?",
+            "options": {
+              "active": {
+                "label": "Zu Fuß oder mit dem Rad",
+                "insight": "Schon ein Stück zu Fuß vor dem Bus macht einen Unterschied: gut für dich und für die Stadt."
+              },
+              "transit": {
+                "label": "Mit Bus, Bahn oder Tram",
+                "insight": "In der 2.\u00a0Klasse kostenlos: Das öffentliche Netz steht in Luxemburg allen offen."
+              },
+              "share": {
+                "label": "In einer Fahrgemeinschaft",
+                "insight": "Ein vollerer Wagen heißt weniger Autos auf der Straße."
+              }
+            }
+          },
+          "offer": {
+            "title": "Fresque de la Mobilité",
+            "org": "äerdschëff asbl",
+            "text": "Ein spielerischer, gemeinsamer Workshop von drei Stunden: die Wirkung unserer Wege verstehen und Lösungen für Luxemburg entwickeln.",
+            "audience": "Für alle und für Familien, in Redange-sur-Attert",
+            "langs": "Französisch"
+          }
+        }
+      }
+    },
+    "quiz": {
+      "title": "Die 30-Sekunden-Challenge",
+      "lead": "3 Fragen. 30 Sekunden. Raten und staunen.",
+      "start": "Los geht’s",
+      "question": "Frage {n} von {total}",
+      "seconds": "Sekunden",
+      "noTimer": "Lass dir Zeit",
+      "right": "Gut erkannt!",
+      "wrong": "Überraschend, oder?",
+      "timeUp": "Die Zeit ist um, die Neugier nicht.",
+      "correctAnswer": "Richtige Antwort",
+      "yourAnswer": "Deine Antwort",
+      "nextQuestion": "Nächste Frage",
+      "finish": "Zum Ergebnis",
+      "doneTitle": "Challenge geschafft!",
+      "score": "Richtig geraten: {n} von {total}",
+      "doneText": "Und {total} neue Entdeckungen an deinem Faden.",
+      "again": "Noch mal mit neuen Fragen",
+      "source": "Quelle: {s}",
+      "items": {
+        "transit": {
+          "q": "In Luxemburg kostet eine Fahrt mit Bus, Bahn oder Tram in der 2.\u00a0Klasse\u00a0…",
+          "options": [
+            "2 Euro",
+            "4 Euro",
+            "Gar nichts"
+          ],
+          "explain": "Seit dem 1. März 2020 ist der öffentliche Verkehr im ganzen Land in der 2.\u00a0Klasse kostenlos. Luxemburg war das erste Land, das diesen Schritt gegangen ist.",
+          "source": "Luxemburgische Regierung, 2020"
+        },
+        "sdg17": {
+          "q": "2015 haben alle UN-Mitgliedstaaten gemeinsame Ziele für eine nachhaltigere Welt beschlossen. Wie viele?",
+          "options": [
+            "5",
+            "17",
+            "100"
+          ],
+          "explain": "17 Ziele für nachhaltige Entwicklung, die bis 2030 erreicht werden sollen: die Agenda 2030. Die 17 Farben unseres Fadens stehen für sie.",
+          "source": "Vereinte Nationen, Agenda 2030"
+        },
+        "agenda": {
+          "q": "Warum heißt sie „Agenda 2030“?",
+          "options": [
+            "Sie wurde 2030 geschrieben",
+            "Ihre Ziele sollen bis 2030 erreicht werden",
+            "Sie enthält 2030 Regeln"
+          ],
+          "explain": "2015 von den 193 UN-Mitgliedstaaten beschlossen, setzt die Agenda 2030 ein gemeinsames Ziel. Auch in Luxemburg arbeiten Schulen und Vereine damit.",
+          "source": "Vereinte Nationen, Agenda 2030"
+        },
+        "food": {
+          "q": "Wo werden weltweit die meisten Lebensmittel verschwendet?",
+          "options": [
+            "In Geschäften",
+            "In Restaurants und Kantinen",
+            "Zu Hause"
+          ],
+          "explain": "Rund 60\u00a0% der verschwendeten Lebensmittel landen in Privathaushalten im Müll. Die gute Nachricht: Genau dort kann man schon heute Abend etwas ändern.",
+          "source": "UNEP, Food Waste Index Report 2024"
+        },
+        "water": {
+          "q": "Wofür wird weltweit das meiste Süßwasser genutzt?",
+          "options": [
+            "Duschen und Baden",
+            "Die Landwirtschaft",
+            "Fabriken"
+          ],
+          "explain": "Rund 70\u00a0% des weltweit entnommenen Süßwassers gehen in die Landwirtschaft. Unser Essen hat Durst!",
+          "source": "FAO, AQUASTAT"
+        },
+        "bees": {
+          "q": "Wie viele der wichtigsten Nahrungspflanzen der Welt profitieren von Bestäubern wie Bienen?",
+          "options": [
+            "Etwa jede zehnte",
+            "Etwa jede dritte",
+            "Mehr als drei von vier"
+          ],
+          "explain": "Mehr als 75\u00a0% der wichtigsten Nahrungspflanzen profitieren zumindest teilweise von Bestäubern: Äpfel, Erdbeeren, Kakao, Kaffee\u00a0…",
+          "source": "IPBES, 2016"
+        }
+      }
+    },
+    "bne": {
+      "step": "Schritt {n} von {total}",
+      "p1": {
+        "title": "Heute gut leben, ohne das Morgen zu verbauen.",
+        "text": "Das ist die Idee nachhaltiger Entwicklung: gleichzeitig auf die Erde, die Menschen und die Wirtschaft achten. Tippe auf jeden Knoten, um ihn mit dir zu verbinden.",
+        "planet": "Die Erde",
+        "people": "Die Menschen",
+        "economy": "Die Wirtschaft",
+        "you": "Du",
+        "done": "Alles hängt zusammen. Und du bist mittendrin."
+      },
+      "p2": {
+        "title": "Dieser Faden hat 17 Farben.",
+        "text": "Sie stehen für die 17 Ziele, die sich alle UN-\u2060Länder bis 2030 gesetzt haben. Tippe auf eine Farbe.",
+        "goal": "Ziel {n}"
+      },
+      "p3": {
+        "title": "BNE heißt: diese Zusammenhänge sehen lernen\u00a0… und handeln.",
+        "text": "In der Schule, in den Maisons Relais, in Vereinen und im Alltag. In jedem Alter.",
+        "name": "BNE steht für „Bildung fir nohalteg Entwécklung“, auf Deutsch: Bildung für nachhaltige Entwicklung.",
+        "understand": "Verstehen",
+        "understandText": "Sehen, wie alles zusammenhängt.",
+        "reflect": "Nachdenken",
+        "reflectText": "Fragen stellen, sich eine Meinung bilden.",
+        "act": "Handeln",
+        "actText": "Ideen gemeinsam umsetzen.",
+        "cta": "BNE in deiner Nähe entdecken"
+      }
+    },
+    "local": {
+      "title": "BNE in deiner Nähe",
+      "ask": "Heute bist du eher\u00a0…",
+      "for": "Für dich",
+      "change": "Profil wechseln",
+      "tapTag": "Tippe auf ein Etikett, um mehr zu erfahren.",
+      "audiences": {
+        "family": {
+          "title": "Mit der Familie unterwegs",
+          "text": "Ideen, die man mit Kindern teilen kann"
+        },
+        "youth": {
+          "title": "Jung, zwischen 6 und 25",
+          "text": "Projekte, bei denen deine Stimme zählt"
+        },
+        "edu": {
+          "title": "Im Bildungsbereich tätig",
+          "text": "Schule, Maison Relais, Jugendhaus\u00a0…"
+        },
+        "curious": {
+          "title": "Einfach neugierig",
+          "text": "Termine, die allen offenstehen"
+        }
+      }
+    },
+    "programs": {
+      "networking": {
+        "name": "BNE Networking 2027",
+        "short": "Der große BNE-\u2060Tag",
+        "text": "Über 70 interaktive Stände von NGOs, Verwaltungen und Bildungseinrichtungen im Forum Geesseknäppchen. Offen für alle, ohne Anmeldung.",
+        "phases": {
+          "event": "Am {date}, von 11 bis 15 Uhr"
+        },
+        "after": "Das jährliche Treffen aller, die in Luxemburg Bildung für nachhaltige Entwicklung gestalten."
+      },
+      "awards": {
+        "name": "BNE Awards 2027",
+        "short": "Ein Wettbewerb für 6- bis 25-Jährige",
+        "text": "Thema: verantwortungsvoll konsumieren und produzieren (Nachhaltigkeitsziel 12). Die Jugendteams werden von einer Schule, einer Maison Relais, einem Jugendhaus oder einem Verein begleitet.",
+        "phases": {
+          "register": "Anmeldung der Teams bis zum {date}",
+          "submit": "Projekte einreichen bis zum {date}",
+          "ceremony": "Preisverleihung am 19. und 20. Mai 2027"
+        },
+        "after": "Entdecke die Projekte der Jugendlichen auf bne.lu."
+      },
+      "youth": {
+        "name": "BNE Youth",
+        "short": "Workshops, Besuche, Escape Games",
+        "text": "Workshops, Besuche, Rallyes, Escape Games und Ausstellungen für Schulen, Maisons Relais und Jugendhäuser, im ganzen Land und das ganze Jahr über.",
+        "phases": {},
+        "after": "Eine Idee für deine Klasse? Zeig diesen Code deiner Schule oder Maison Relais."
+      },
+      "training": {
+        "name": "BNE Training",
+        "short": "Fortbildungen zu BNE",
+        "text": "Fortbildungen für Lehr- und Erziehungskräfte sowie engagierte Erwachsene: Seminare, Hospitationen, Online-Kurse oder Angebote im IFEN-Katalog.",
+        "phases": {},
+        "after": "Das ganze Schuljahr über, im ganzen Land."
+      },
+      "supply": {
+        "name": "BNE Supply",
+        "short": "Rückenwind für eure Projekte",
+        "text": "Finanzielle Unterstützung für nachhaltige Projekte von und für junge Menschen: bis zu 25.000\u00a0€ für Infrastruktur oder Material, bis zu 2.500\u00a0€ für eine Veranstaltung.",
+        "phases": {
+          "apply": "Anträge bis zum {date}"
+        },
+        "after": "Vorrang für Schulen, offen auch für Maisons Relais, Jugendhäuser und Vereine."
+      },
+      "adults": {
+        "name": "BNE Adultes",
+        "short": "Für Erwachsene",
+        "text": "Fortbildungen, Führungen und Workshops, um sich für den ökologischen und sozialen Wandel einzusetzen, allein, im Verein oder im Unternehmen.",
+        "phases": {},
+        "after": "Für Privatpersonen, Vereine und Unternehmen."
+      },
+      "agenda": {
+        "name": "Agenda 2030 und Nachhaltigkeitsziele",
+        "short": "Die 17 Ziele erklärt",
+        "text": "Die 17 Nachhaltigkeitsziele verstehen und Tipps finden, wie man in Luxemburg aktiv werden kann.",
+        "phases": {},
+        "after": "Auf dem Portal bne.lu"
+      },
+      "edd": {
+        "name": "Bildung für nachhaltige Entwicklung",
+        "short": "Alles über BNE",
+        "text": "Ziele, Methoden und der europäische Kompetenzrahmen GreenComp.",
+        "phases": {},
+        "after": "Auf dem Portal bne.lu"
+      },
+      "home": {
+        "name": "bne.lu",
+        "short": "Das nationale Portal",
+        "text": "Angebote, Akteure und Neuigkeiten zur Bildung für nachhaltige Entwicklung in Luxemburg.",
+        "phases": {},
+        "after": "Workshops, Besuche, Fortbildungen und vieles mehr."
+      }
+    },
+    "take": {
+      "title": "Nimm deinen Faden mit",
+      "lead": "Scanne einen Code mit deinem Handy und mach zu Hause weiter.",
+      "empty": "Dein Faden ist noch leer. Hier sind zwei gute Startpunkte.",
+      "privacy": "Nichts wird gespeichert. Dein Faden verschwindet, wenn du gehst.",
+      "finish": "Ich bin fertig",
+      "continue": "Weiter entdecken"
+    },
+    "sdg": {
+      "1": "Keine Armut",
+      "2": "Kein Hunger",
+      "3": "Gesundheit und Wohlergehen",
+      "4": "Hochwertige Bildung",
+      "5": "Geschlechtergleichheit",
+      "6": "Sauberes Wasser und Sanitäreinrichtungen",
+      "7": "Bezahlbare und saubere Energie",
+      "8": "Menschenwürdige Arbeit und Wirtschaftswachstum",
+      "9": "Industrie, Innovation und Infrastruktur",
+      "10": "Weniger Ungleichheiten",
+      "11": "Nachhaltige Städte und Gemeinden",
+      "12": "Nachhaltiger Konsum und Produktion",
+      "13": "Maßnahmen zum Klimaschutz",
+      "14": "Leben unter Wasser",
+      "15": "Leben an Land",
+      "16": "Frieden, Gerechtigkeit und starke Institutionen",
+      "17": "Partnerschaften zur Erreichung der Ziele",
+      "label": "SDG {n}"
+    },
+    "admin": {
+      "title": "Wartung",
+      "version": "Version",
+      "location": "Standort",
+      "none": "nicht festgelegt",
+      "date": "Verwendetes Datum",
+      "quality": "Animationsqualität",
+      "fps": "Bilder pro Sekunde",
+      "reduced": "Reduzierte Animationen",
+      "yes": "Ja",
+      "no": "Nein",
+      "i18n": "Übersetzungsprüfung",
+      "i18nOk": "In allen 3 Sprachen vollständig",
+      "i18nMissing": "{n} fehlende Texte",
+      "connection": "Verbindung",
+      "online": "Online",
+      "offline": "Offline",
+      "stats": "Lokale Statistik",
+      "statsOff": "In config.json deaktiviert",
+      "statsLine": "{sessions} Sitzungen, {completed} abgeschlossene Erlebnisse",
+      "statsReset": "Zurücksetzen",
+      "reload": "Neu laden",
+      "testReset": "Rückkehr zum Start testen",
+      "q": {
+        "auto": "Auto",
+        "high": "Hoch",
+        "balanced": "Ausgewogen",
+        "low": "Sparsam"
+      }
+    },
+    "preview": {
+      "caption": "Vorschau des 50-Zoll-Touchscreens im Hochformat. Die Maus ersetzt den Finger.",
+      "file": "Öffne diesen Ordner über einen lokalen Server (siehe README) oder nutze die eigenständige Version in dist/."
+    }
+  },
+  "en": {
+    "meta": {
+      "language": "English",
+      "locale": "en-GB"
+    },
+    "brand": {
+      "descriptor": "Education for sustainable development",
+      "experience": "Pull the thread"
+    },
+    "ui": {
+      "home": "Home",
+      "back": "Back",
+      "next": "Next",
+      "close": "Close",
+      "yourThread": "Your thread",
+      "takeAway": "Take home",
+      "discoveries": {
+        "zero": "Still empty",
+        "one": "{n} discovery",
+        "other": "{n} discoveries"
+      },
+      "added": "Added to your thread",
+      "scan": "Scan with your phone",
+      "language": "Language",
+      "prototype": "Prototype",
+      "idle": {
+        "title": "Still there?",
+        "text": "Touch the screen to keep going.",
+        "countdown": "Starting over in {s} s",
+        "stay": "I’m still here"
+      },
+      "error": {
+        "title": "A short technical pause",
+        "text": "The installation will restart in a few seconds."
+      }
+    },
+    "attract": {
+      "title": "Pull the thread.",
+      "tagline": "Behind every thing, a whole world.",
+      "touch": "Touch the screen to begin"
+    },
+    "hub": {
+      "title": "Which thread will you pull?",
+      "lead": "Pick one. Every thread leads somewhere.",
+      "objects": {
+        "title": "The hidden label",
+        "text": "What everyday things have to say"
+      },
+      "quiz": {
+        "title": "The 30-\u2060second challenge",
+        "text": "3 questions, solo or with family"
+      },
+      "bne": {
+        "title": "What is BNE?",
+        "text": "Sustainable development in one minute"
+      },
+      "local": {
+        "title": "BNE near you",
+        "text": "Activities, contests and events in Luxembourg"
+      }
+    },
+    "objects": {
+      "title": "The hidden label",
+      "lead": "Everything here has a price tag. The story behind each object stays hidden. Choose one.",
+      "all": "All objects",
+      "pullHint": "Pull a thread or tap a knot.",
+      "progress": {
+        "one": "{n} of {total} threads pulled",
+        "other": "{n} of {total} threads pulled"
+      },
+      "next": "What next?",
+      "decisionLead": "There’s no wrong answer. Every idea keeps the thread going.",
+      "offerLead": "Go further in Luxembourg",
+      "offerBy": "Offered by {org}",
+      "offerLangs": "Languages: {langs}",
+      "offerGroups": "A workshop for classes and groups: suggest it to your school or Maison Relais.",
+      "offerPublic": "A workshop open to the public and families.",
+      "another": "Another object",
+      "items": {
+        "tshirt": {
+          "name": "The T-\u2060shirt",
+          "hook": "How many hands have touched your T-\u2060shirt?",
+          "threads": {
+            "field": {
+              "label": "The field",
+              "title": "It all starts in a field",
+              "text": "Cotton grows in fields, often very far from here. It needs sun, soil and a lot of water."
+            },
+            "hands": {
+              "label": "The hands",
+              "title": "Many hands",
+              "text": "Picking, spinning, dyeing, sewing, packing, selling: people in several countries work on a single T-\u2060shirt. Their working conditions aren’t always fair."
+            },
+            "journey": {
+              "label": "The journey",
+              "title": "Often a long journey",
+              "text": "From field to shop, a T-\u2060shirt often passes through several countries, sometimes several continents."
+            },
+            "after": {
+              "label": "Afterwards",
+              "title": "A second life",
+              "text": "The longer a piece of clothing is worn, the longer the water, energy and work inside it stay useful."
+            }
+          },
+          "decision": {
+            "question": "So what could this T-\u2060shirt become?",
+            "options": {
+              "keep": {
+                "label": "I wear it for a long time",
+                "insight": "The most sustainable piece of clothing is often the one you already own."
+              },
+              "repair": {
+                "label": "I mend it or make something new",
+                "insight": "A button, a hem, a patch: mending extends the story of all the hands that made it."
+              },
+              "give": {
+                "label": "I give it away or swap it",
+                "insight": "Given away or swapped, it carries on its journey with someone else."
+              }
+            }
+          },
+          "offer": {
+            "title": "D’où vient mon T-\u2060shirt\u202f?",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "A workshop to find out where our clothes come from, what they’re made of and how they’re produced.",
+            "audience": "For primary classes, cycles 3 and 4",
+            "langs": "German, French"
+          }
+        },
+        "phone": {
+          "name": "The smartphone",
+          "hook": "What’s hiding inside your phone?",
+          "threads": {
+            "metals": {
+              "label": "The metals",
+              "title": "A small piece of the Earth",
+              "text": "A smartphone contains many different materials, including metals from mines all over the world."
+            },
+            "mines": {
+              "label": "The mines",
+              "title": "Sometimes harsh conditions",
+              "text": "Some minerals are mined under difficult social and environmental conditions, for people and for nature alike."
+            },
+            "energy": {
+              "label": "The energy",
+              "title": "Before you even switch it on",
+              "text": "Making it takes a lot of energy and resources: a large part of its footprint comes from manufacturing."
+            },
+            "data": {
+              "label": "The data",
+              "title": "An invisible thread",
+              "text": "Every photo, video or message travels through networks and data centres that also use electricity."
+            }
+          },
+          "decision": {
+            "question": "And when it starts to slow down?",
+            "options": {
+              "keep": {
+                "label": "I keep it longer",
+                "insight": "Since much of its impact comes from manufacturing, every extra year counts."
+              },
+              "repair": {
+                "label": "I get it repaired",
+                "insight": "Cracked screen, weak battery: many faults can be fixed."
+              },
+              "recycle": {
+                "label": "I take it for recycling",
+                "insight": "Dropped at a collection point, it doesn’t gather dust in a drawer: some of its materials can be recovered."
+              }
+            }
+          },
+          "offer": {
+            "title": "Minerais et intelligence artificielle",
+            "org": "Fondation Partage Luxembourg",
+            "text": "A workshop on the hidden side of digital life: the links between mining, our devices and artificial intelligence.",
+            "audience": "For 2e and 1re classes, age 15 and up",
+            "langs": "English, French, Luxembourgish"
+          }
+        },
+        "choco": {
+          "name": "The chocolate",
+          "hook": "Where does your chocolate come from?",
+          "threads": {
+            "tree": {
+              "label": "The tree",
+              "title": "It all starts on a tree",
+              "text": "Cocoa grows on trees in warm, humid regions near the equator. Its fruits are called pods."
+            },
+            "families": {
+              "label": "The families",
+              "title": "Small family farms",
+              "text": "Much of the world’s cocoa is grown by families on small farms. Many of them live on very little."
+            },
+            "share": {
+              "label": "The share",
+              "title": "Who earns what?",
+              "text": "Of the price of a chocolate bar, only a small share reaches the people who grow the cocoa."
+            },
+            "fair": {
+              "label": "The label",
+              "title": "A fairer price",
+              "text": "Fair trade aims to secure a fairer price and better working conditions for producers."
+            }
+          },
+          "decision": {
+            "question": "And next time?",
+            "options": {
+              "origin": {
+                "label": "I check where it comes from",
+                "insight": "Reading the wrapper is already pulling the thread."
+              },
+              "fair": {
+                "label": "I look for a fair trade label",
+                "insight": "Your choice in the shop is connected to the lives of producers thousands of kilometres away."
+              },
+              "savour": {
+                "label": "I savour it slowly",
+                "insight": "Savouring is also a way to honour the long road from pod to you."
+              }
+            }
+          },
+          "offer": {
+            "title": "Chocotastique\u202f! Le voyage d’une cabosse",
+            "org": "Fairtrade Lëtzebuerg",
+            "text": "A workshop on where cocoa comes from, how the people who grow it live and who profits from the chocolate trade.",
+            "audience": "For primary classes, cycles 3 and 4",
+            "langs": "German, French"
+          }
+        },
+        "ride": {
+          "name": "Your trip here",
+          "hook": "How did you get here today?",
+          "threads": {
+            "air": {
+              "label": "The air",
+              "title": "Streets that breathe",
+              "text": "Fewer engines running means cleaner air and quieter streets for everyone."
+            },
+            "climate": {
+              "label": "The climate",
+              "title": "A big lever",
+              "text": "In Europe, transport is one of the largest sources of greenhouse gases."
+            },
+            "health": {
+              "label": "Health",
+              "title": "Moving feels good",
+              "text": "Walking or cycling, even for part of the way, is good for body and mind."
+            },
+            "network": {
+              "label": "The network",
+              "title": "Free for everyone",
+              "text": "In Luxembourg, buses, trains and the tram have been free in second class since March 2020."
+            }
+          },
+          "decision": {
+            "question": "How do you picture your next trip?",
+            "options": {
+              "active": {
+                "label": "On foot or by bike",
+                "insight": "Even a short walk before the bus makes a difference: good for you and for the city."
+              },
+              "transit": {
+                "label": "By bus, train or tram",
+                "insight": "Free in second class, Luxembourg’s public network is open to everyone."
+              },
+              "share": {
+                "label": "By carpooling",
+                "insight": "A fuller car means fewer cars on the road."
+              }
+            }
+          },
+          "offer": {
+            "title": "Fresque de la Mobilité",
+            "org": "äerdschëff asbl",
+            "text": "A playful, collaborative three-\u2060hour workshop to understand the impact of how we travel and imagine solutions for Luxembourg.",
+            "audience": "For the public and families, in Redange-sur-Attert",
+            "langs": "French"
+          }
+        }
+      }
+    },
+    "quiz": {
+      "title": "The 30-\u2060second challenge",
+      "lead": "3 questions. 30 seconds. Guess, then discover.",
+      "start": "Let’s go",
+      "question": "Question {n} of {total}",
+      "seconds": "seconds",
+      "noTimer": "Take your time",
+      "right": "Spot on!",
+      "wrong": "Surprising, right?",
+      "timeUp": "Time’s up, but the curiosity isn’t.",
+      "correctAnswer": "Right answer",
+      "yourAnswer": "Your answer",
+      "nextQuestion": "Next question",
+      "finish": "See the result",
+      "doneTitle": "Challenge complete!",
+      "score": "Good guesses: {n} of {total}",
+      "doneText": "And {total} new discoveries on your thread.",
+      "again": "Play again with new questions",
+      "source": "Source: {s}",
+      "items": {
+        "transit": {
+          "q": "In Luxembourg, a second-class trip by bus, train or tram costs…",
+          "options": [
+            "2 euros",
+            "4 euros",
+            "Nothing at all"
+          ],
+          "explain": "Since 1 March 2020, public transport has been free in second class across the whole country. Luxembourg was the first country to do this.",
+          "source": "Government of Luxembourg, 2020"
+        },
+        "sdg17": {
+          "q": "In 2015, all UN member states adopted shared goals for a more sustainable world. How many?",
+          "options": [
+            "5",
+            "17",
+            "100"
+          ],
+          "explain": "17 Sustainable Development Goals to reach by 2030: that’s the 2030 Agenda. They’re the 17 colours of our thread.",
+          "source": "United Nations, 2030 Agenda"
+        },
+        "agenda": {
+          "q": "Why is it called the “2030 Agenda”?",
+          "options": [
+            "It was written in 2030",
+            "Its goals are to be reached by 2030",
+            "It contains 2030 rules"
+          ],
+          "explain": "Adopted in 2015 by the 193 UN member states, the 2030 Agenda sets a shared horizon. In Luxembourg too, schools and associations use it to take action.",
+          "source": "United Nations, 2030 Agenda"
+        },
+        "food": {
+          "q": "Worldwide, where is the most food wasted?",
+          "options": [
+            "In shops",
+            "In restaurants and canteens",
+            "At home"
+          ],
+          "explain": "About 60% of wasted food is thrown away in households. The good news: that’s where we can act tonight.",
+          "source": "UNEP, Food Waste Index Report 2024"
+        },
+        "water": {
+          "q": "Worldwide, what uses the most fresh water?",
+          "options": [
+            "Showers and baths",
+            "Farming",
+            "Factories"
+          ],
+          "explain": "About 70% of the fresh water withdrawn worldwide goes to farming. Our food is thirsty!",
+          "source": "FAO, AQUASTAT"
+        },
+        "bees": {
+          "q": "Of the world’s leading food crops, how many benefit from pollinators like bees?",
+          "options": [
+            "About 1 in 10",
+            "About 1 in 3",
+            "More than 3 in 4"
+          ],
+          "explain": "More than 75% of leading food crops benefit at least partly from pollinators: apples, strawberries, cocoa, coffee…",
+          "source": "IPBES, 2016"
+        }
+      }
+    },
+    "bne": {
+      "step": "Step {n} of {total}",
+      "p1": {
+        "title": "Live well today without spoiling tomorrow.",
+        "text": "That’s the idea behind sustainable development: caring for the planet, people and the economy at the same time. Tap each knot to connect it to you.",
+        "planet": "The planet",
+        "people": "People",
+        "economy": "The economy",
+        "you": "You",
+        "done": "Everything is connected. And you’re right in the middle."
+      },
+      "p2": {
+        "title": "This thread has 17 colours.",
+        "text": "They’re the 17 goals all UN countries set for 2030. Tap a colour.",
+        "goal": "Goal {n}"
+      },
+      "p3": {
+        "title": "BNE means learning to see these links… and to act.",
+        "text": "At school, in Maisons Relais, in associations and in everyday life. At any age.",
+        "name": "BNE stands for “Bildung fir nohalteg Entwécklung”: education for sustainable development.",
+        "understand": "Understand",
+        "understandText": "See how everything connects.",
+        "reflect": "Reflect",
+        "reflectText": "Ask questions, form your own view.",
+        "act": "Act",
+        "actText": "Turn ideas into action, together.",
+        "cta": "Discover BNE near you"
+      }
+    },
+    "local": {
+      "title": "BNE near you",
+      "ask": "Today, you’re mostly…",
+      "for": "For you",
+      "change": "Change profile",
+      "tapTag": "Tap a label to find out more.",
+      "audiences": {
+        "family": {
+          "title": "Out with family",
+          "text": "Ideas to share with the kids"
+        },
+        "youth": {
+          "title": "Young, between 6 and 25",
+          "text": "Projects where your voice counts"
+        },
+        "edu": {
+          "title": "Working in education",
+          "text": "School, Maison Relais, youth centre…"
+        },
+        "curious": {
+          "title": "Just curious",
+          "text": "Events open to everyone"
+        }
+      }
+    },
+    "programs": {
+      "networking": {
+        "name": "BNE Networking 2027",
+        "short": "The big BNE day",
+        "text": "Over 70 interactive stands from NGOs, public bodies and educational organisations at Forum Geesseknäppchen. Open to all, no registration needed.",
+        "phases": {
+          "event": "On {date}, from 11 am to 3 pm"
+        },
+        "after": "The yearly meeting of everyone shaping education for sustainable development in Luxembourg."
+      },
+      "awards": {
+        "name": "BNE Awards 2027",
+        "short": "A contest for ages 6 to 25",
+        "text": "Theme: responsible consumption and production (SDG 12). Youth teams are supported by a school, a Maison Relais, a youth centre or an association.",
+        "phases": {
+          "register": "Team registration until {date}",
+          "submit": "Projects due by {date}",
+          "ceremony": "Awards ceremony on 19 and 20 May 2027"
+        },
+        "after": "Discover the young people’s projects on bne.lu."
+      },
+      "youth": {
+        "name": "BNE Youth",
+        "short": "Workshops, visits, escape games",
+        "text": "Workshops, visits, rallies, escape games and exhibitions for schools, Maisons Relais and youth centres, across the country, all year round.",
+        "phases": {},
+        "after": "An idea for your class? Show this code to your school or Maison Relais."
+      },
+      "training": {
+        "name": "BNE Training",
+        "short": "Training in BNE",
+        "text": "Continuing education for teachers, educators and committed adults: seminars, classroom visits, online courses or sessions from the IFEN catalogue.",
+        "phases": {},
+        "after": "All school year long, across the country."
+      },
+      "supply": {
+        "name": "BNE Supply",
+        "short": "A boost for your projects",
+        "text": "Funding for sustainable projects by and for young people: up to €25,000 for infrastructure or equipment, up to €2,500 for an event.",
+        "phases": {
+          "apply": "Applications until {date}"
+        },
+        "after": "Schools come first; Maisons Relais, youth centres and associations can apply too."
+      },
+      "adults": {
+        "name": "BNE Adultes",
+        "short": "For adults",
+        "text": "Training, guided tours and workshops to get involved in the ecological and social transition, on your own, in an association or at work.",
+        "phases": {},
+        "after": "For individuals, associations and companies."
+      },
+      "agenda": {
+        "name": "2030 Agenda and SDGs",
+        "short": "The 17 goals explained",
+        "text": "Understand the 17 Sustainable Development Goals and find tips for taking action in Luxembourg.",
+        "phases": {},
+        "after": "On the bne.lu portal"
+      },
+      "edd": {
+        "name": "Education for sustainable development",
+        "short": "All about BNE",
+        "text": "Its goals, its methods and the European GreenComp competence framework.",
+        "phases": {},
+        "after": "On the bne.lu portal"
+      },
+      "home": {
+        "name": "bne.lu",
+        "short": "The national portal",
+        "text": "Offers, organisations and news on education for sustainable development in Luxembourg.",
+        "phases": {},
+        "after": "Workshops, visits, training and much more."
+      }
+    },
+    "take": {
+      "title": "Take your thread home",
+      "lead": "Scan a code with your phone to keep exploring at home.",
+      "empty": "Your thread is still empty. Here are two good places to start.",
+      "privacy": "Nothing is saved. Your thread disappears when you leave.",
+      "finish": "I’m done",
+      "continue": "Keep exploring"
+    },
+    "sdg": {
+      "1": "No poverty",
+      "2": "Zero hunger",
+      "3": "Good health and well-\u2060being",
+      "4": "Quality education",
+      "5": "Gender equality",
+      "6": "Clean water and sanitation",
+      "7": "Affordable and clean energy",
+      "8": "Decent work and economic growth",
+      "9": "Industry, innovation and infrastructure",
+      "10": "Reduced inequalities",
+      "11": "Sustainable cities and communities",
+      "12": "Responsible consumption and production",
+      "13": "Climate action",
+      "14": "Life below water",
+      "15": "Life on land",
+      "16": "Peace, justice and strong institutions",
+      "17": "Partnerships for the goals",
+      "label": "SDG {n}"
+    },
+    "admin": {
+      "title": "Maintenance",
+      "version": "Version",
+      "location": "Location",
+      "none": "not set",
+      "date": "Date in use",
+      "quality": "Animation quality",
+      "fps": "Frames per second",
+      "reduced": "Reduced motion",
+      "yes": "Yes",
+      "no": "No",
+      "i18n": "Translation check",
+      "i18nOk": "Complete in all 3 languages",
+      "i18nMissing": "{n} missing texts",
+      "connection": "Connection",
+      "online": "Online",
+      "offline": "Offline",
+      "stats": "Local statistics",
+      "statsOff": "Disabled in config.json",
+      "statsLine": "{sessions} sessions, {completed} completed experiences",
+      "statsReset": "Reset counters",
+      "reload": "Reload",
+      "testReset": "Test return to start",
+      "q": {
+        "auto": "Auto",
+        "high": "High",
+        "balanced": "Balanced",
+        "low": "Low"
+      }
+    },
+    "preview": {
+      "caption": "Preview of the 50-\u2060inch portrait touchscreen. Your mouse stands in for a finger.",
+      "file": "Open this folder through a local server (see README) or use the standalone version in dist/."
+    }
+  }
+}

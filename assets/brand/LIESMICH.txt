@@ -1,0 +1,4 @@
+Hier das offizielle BNE-Logo ablegen, z. B. bne-logo.svg, und in content/config.json
+unter "brand": { "logo": "assets/brand/bne-logo.svg" } eintragen.
+Solange das Feld leer ist, zeigt die Stele die Textmarke "bne.lu".
+Logo und Farben vor dem Einsatz mit der BNE-Koordination abstimmen.

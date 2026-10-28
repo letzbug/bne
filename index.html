@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Tire le fil | bne.lu</title>
+  <meta name="description" content="Tire le fil : expérience tactile de la BNE (Bildung fir nohalteg Entwécklung) pour les lieux publics au Luxembourg. Prototype.">
+  <meta name="theme-color" content="#0E2C31">
+  <meta name="robots" content="noindex">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="viewport">
+    <div id="stage">
+      <canvas id="fil" aria-hidden="true"></canvas>
+      <header id="topbar"></header>
+      <main id="screen"></main>
+      <nav id="dock"></nav>
+      <div id="overlay-root"></div>
+    </div>
+  </div>
+  <p id="preview-caption"></p>
+  <script src="js/qr.js"></script>
+  <script src="js/fil.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

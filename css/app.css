@@ -483,7 +483,7 @@ body.reduced .draw { animation-duration: .5s !important; }
 .att-title { top: 34px; }
 .att-tagline { top: 196px; font-size: 44px; line-height: 1.2; }
 .att-hook { top: 1145px; height: 290px; }
-.att-touch { top: 1500px; height: 180px; pointer-events: none; }
+.att-touch { top: 1452px; height: 230px; gap: 14px; pointer-events: none; }
 .att-touch .att-prompt { font-family: var(--font-display); font-weight: 650; font-size: 42px; transition: opacity .3s; }
 .scr-attract.is-pulling .att-touch .pulse { transform: scale(.7); transition: transform .2s; }
 .scr-attract .att-art { display: none; }
@@ -561,7 +561,7 @@ body.reduced .draw { animation-duration: .5s !important; }
   color-scheme: light;
 }
 :root[data-design="corporate"] body[data-screen="attract"] #brand-arcs { opacity: 1; }
-#brand-arcs .ring { transform-origin: 540px 845px; animation: spin 90s linear infinite; }
+#brand-arcs .ring { transform-origin: 540px 760px; animation: spin 90s linear infinite; }
 body.reduced #brand-arcs .ring { animation: none; }
 :root[data-design="corporate"] .t-hero, :root[data-design="corporate"] .t-h1, :root[data-design="corporate"] .t-h2 { letter-spacing: -.035em; }
 :root[data-design="corporate"] .t-hero { font-weight: 700; }
@@ -583,3 +583,16 @@ body.reduced #brand-arcs .ring { animation: none; }
 :root[data-design="corporate"] .knot { filter: drop-shadow(0 10px 14px rgba(22, 22, 21, .16)); }
 @keyframes spin { to { transform: rotate(360deg); } }
 body.reduced .hub-item .hk::after, body.reduced .att-touch .pulse::after { animation: none !important; }
+
+/* Version 2.1: Lichtvorhang und gemeinsamer Faden */
+.att-commons { font-size: 30px; color: var(--lichen); transition: opacity .4s; }
+.att-commons.is-off { display: none; }
+#overlay-root > .curtain { position: absolute; inset: 0; z-index: 40; pointer-events: none;
+  background: radial-gradient(circle at var(--x) var(--y), #FFFFFF 0%, #FBF8F3 50%, #F3EDE3 100%);
+  clip-path: circle(0px at var(--x) var(--y)); transition: clip-path .98s cubic-bezier(.6, 0, .2, 1), opacity .5s; }
+#overlay-root > .curtain.open { clip-path: circle(2300px at var(--x) var(--y)); }
+#overlay-root > .curtain.done { opacity: 0; }
+/* Im dunklen Startbild des Lichtvorhangs leuchtet der Logo-Ring schon mit */
+:root[data-variant="hybrid"] body[data-screen="attract"] #brand-arcs { opacity: .95; }
+
+.admin .btn-primary { background: var(--ink); color: var(--paper); }

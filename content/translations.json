@@ -43,6 +43,10 @@
       "pulling": "Tire… puis lâche.",
       "motifs": {
         "plant": "Et si tout était lié\u202f?"
+      },
+      "commons": {
+        "one": "{n} personne a déjà tiré le fil ici.",
+        "other": "{n} personnes ont déjà tiré le fil ici."
       }
     },
     "hub": {
@@ -559,10 +563,14 @@
       "design": "Variante graphique",
       "designs": {
         "dark": "Original Dark",
-        "corporate": "BNE Corporate"
+        "corporate": "BNE Corporate",
+        "hybrid": "Rideau de lumière"
       },
       "newDemo": "Nouvelle démonstration",
-      "badge": "Mention «\u00a0Prototype\u00a0»"
+      "badge": "Mention «\u00a0Prototype\u00a0»",
+      "commons": "Fil commun",
+      "commonsLine": "{n} départs depuis le {date}",
+      "commonsReset": "Remettre le compteur à zéro"
     },
     "preview": {
       "caption": "Aperçu de l’écran tactile 50 pouces en portrait. La souris remplace le doigt.",
@@ -612,6 +620,10 @@
       "pulling": "Zieh … und lass los.",
       "motifs": {
         "plant": "Und wenn alles zusammenhängt?"
+      },
+      "commons": {
+        "one": "{n} Mensch hat hier schon am Faden gezogen.",
+        "other": "{n} Menschen haben hier schon am Faden gezogen."
       }
     },
     "hub": {
@@ -1128,10 +1140,14 @@
       "design": "Designvariante",
       "designs": {
         "dark": "Original Dark",
-        "corporate": "BNE Corporate"
+        "corporate": "BNE Corporate",
+        "hybrid": "Lichtvorhang"
       },
       "newDemo": "Neue Vorführung starten",
-      "badge": "Hinweis „Prototyp“"
+      "badge": "Hinweis „Prototyp“",
+      "commons": "Gemeinsamer Faden",
+      "commonsLine": "{n} Starts seit dem {date}",
+      "commonsReset": "Zähler zurücksetzen"
     },
     "preview": {
       "caption": "Vorschau des 50-Zoll-Touchscreens im Hochformat. Die Maus ersetzt den Finger.",
@@ -1181,6 +1197,10 @@
       "pulling": "Pull… then let go.",
       "motifs": {
         "plant": "What if everything is connected?"
+      },
+      "commons": {
+        "one": "{n} person has already pulled the thread here.",
+        "other": "{n} people have already pulled the thread here."
       }
     },
     "hub": {
@@ -1697,10 +1717,14 @@
       "design": "Design variant",
       "designs": {
         "dark": "Original Dark",
-        "corporate": "BNE Corporate"
+        "corporate": "BNE Corporate",
+        "hybrid": "Light curtain"
       },
       "newDemo": "Start a new demo",
-      "badge": "“Prototype” label"
+      "badge": "“Prototype” label",
+      "commons": "Shared thread",
+      "commonsLine": "{n} starts since {date}",
+      "commonsReset": "Reset counter"
     },
     "preview": {
       "caption": "Preview of the 50-\u2060inch portrait touchscreen. Your mouse stands in for a finger.",

@@ -1,7 +1,7 @@
 /* Service Worker: hält die Installation auch bei wackeligem WLAN am Laufen.
    Programmdateien: zuerst aus dem Cache. Inhalte (content/*.json): zuerst aus dem Netz, sonst Cache.
    Nach Änderungen an Programmdateien VERSION erhöhen. */
-var VERSION = 'tirelefil-2.0.0';
+var VERSION = 'tirelefil-2.1.0';
 var CORE = ['./', 'index.html', 'css/fonts.css', 'css/app.css', 'js/qr.js', 'js/fil.js', 'js/app.js',
   'content/config.json', 'content/content.json', 'content/translations.json', 'assets/icon.svg', 'assets/brand/bne-logo.svg', 'manifest.webmanifest'];
 

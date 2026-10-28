@@ -58,7 +58,7 @@
   function storedSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* ok */ } }
 
   /* ---------- Designvarianten: 'corporate' (BNE Corporate) und 'dark' (Original Dark) ---------- */
-  var DESIGNS = ['corporate', 'dark'];
+  var DESIGNS = ['corporate', 'dark', 'hybrid'];
   function currentDesign() {
     var u = params.get('design'), st = storedGet('bne-design'), c = D.config.design && D.config.design.variant;
     if (DESIGNS.indexOf(u) >= 0) return u;
@@ -69,21 +69,52 @@
     var bc = D.content.brandColors;
     return v === 'corporate' ? { colors: (bc && bc.thread) || sdgList(), mode: 'ink' } : { colors: sdgList(), mode: 'glow' };
   }
+  // 'hybrid' = Lichtvorhang: dunkles, leuchtendes Startbild, nach dem Loslassen des Fadens hell (BNE Corporate)
+  function effectiveDesign(screen) { return S.design === 'hybrid' ? (screen === 'attract' ? 'dark' : 'corporate') : S.design; }
+  function setEffective(eff) {
+    if (S.effective === eff) return;
+    S.effective = eff;
+    document.documentElement.setAttribute('data-design', eff);
+    if (fil) fil.setTheme(threadTheme(eff));
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', eff === 'corporate' ? '#FBF8F3' : '#0E2C31');
+  }
   function applyDesign(v, persist) {
     S.design = v;
-    document.documentElement.setAttribute('data-design', v);
+    document.documentElement.setAttribute('data-variant', v);
     if (persist) storedSet('bne-design', v);
-    if (fil) fil.setTheme(threadTheme(v));
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', v === 'corporate' ? '#FBF8F3' : '#0E2C31');
+    S.effective = null;
+    setEffective(effectiveDesign(S.screen || 'attract'));
   }
+  function lightCurtain(x, y) {
+    return new Promise(function (res) {
+      if (document.body.classList.contains('reduced')) { setEffective('corporate'); res(); return; }
+      var c = h('div', { class: 'curtain', style: { '--x': px(x), '--y': px(y) } });
+      overlayRoot.appendChild(c);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { c.classList.add('open'); }); });
+      setTimeout(function () {
+        setEffective('corporate'); res();
+        setTimeout(function () { c.classList.add('done'); setTimeout(function () { c.remove(); }, 520); }, 140);
+      }, 980);
+    });
+  }
+
+  /* ---------- Gemeinsamer Faden: anonymer Zähler der Starts auf diesem Gerät ---------- */
+  function commonsRead() {
+    try { return JSON.parse(storedGet('bne-commons') || 'null') || { n: 0, since: todayISO() }; } catch (e) { return { n: 0, since: todayISO() }; }
+  }
+  function countCommons() {
+    if (!D.config.commons || !D.config.commons.enabled) return;
+    var c = commonsRead(); c.n++; storedSet('bne-commons', JSON.stringify(c));
+  }
+  function fmtNum(n) { try { return new Intl.NumberFormat(lookup(S.lang, 'meta.locale') || 'fr-LU').format(n); } catch (e) { return String(n); } }
   function badgeOn() { var st = storedGet('bne-badge'); return st === null ? D.config.demoBadge !== false : st === '1'; }
 
   /* ---------- Logo-Bögen als Hintergrundmotiv (Farben aus dem Logo) ---------- */
   function brandArcs() {
     // Großer Ring aus den 17 Logo-Segmenten: Bühne für die Faden-Form im Ruhezustand
     var bc = D.content.brandColors, cols = (bc && bc.thread) || sdgList();
-    var cx = 540, cy = 845, r = 430, n = cols.length, span = 360 / n, gap = span * 0.16, html = '';
+    var cx = 540, cy = 760, r = 430, n = cols.length, span = 360 / n, gap = span * 0.16, html = '';
     cols.forEach(function (c, i) {
       var s0 = (-90 + i * span + gap / 2) * Math.PI / 180, s1 = (-90 + (i + 1) * span - gap / 2) * Math.PI / 180;
       html += '<path d="M' + (cx + r * Math.cos(s0)).toFixed(1) + ' ' + (cy + r * Math.sin(s0)).toFixed(1) + ' A' + r + ' ' + r + ' 0 0 1 ' +
@@ -434,6 +465,7 @@
     scope = { timers: [], intervals: [], cleanups: [] };
     S.screen = name;
     document.body.setAttribute('data-screen', name);
+    if (S.design === 'hybrid') setEffective(effectiveDesign(name));
     var next;
     try {
       next = SCREENS[name](opts || {});
@@ -494,11 +526,19 @@
     var idx = -1;
     var hook = h('h2', { class: 'abs att-hook t-h1 balance fit fade-out', 'data-fit-min': '0.6' });
     var prompt = h('p', { class: 'att-prompt', i18n: 'attract.touch' });
+    var commons = h('p', { class: 'att-commons is-off' });
+    function showCommons() {
+      var cfg = D.config.commons, c = commonsRead();
+      var on = cfg && cfg.enabled && c.n >= (cfg.minToShow || 10);
+      commons.classList.toggle('is-off', !on);
+      if (on) setKey(commons, pluralKey('attract.commons', c.n), { n: fmtNum(c.n) });
+    }
+    var lastPt = { x: 540, y: 1590 };
     var el = h('section', { class: 'scr-attract' }, [
       h('h1', { class: 'abs att-title t-hero fit nowrap', i18n: 'attract.title' }),
       h('p', { class: 'abs att-tagline t-lead balance', i18n: 'attract.tagline' }),
       hook,
-      h('div', { class: 'abs att-touch', 'aria-hidden': 'true' }, [h('span', { class: 'pulse' }), prompt]),
+      h('div', { class: 'abs att-touch', 'aria-hidden': 'true' }, [h('span', { class: 'pulse' }), prompt, commons]),
       h('button', { class: 'sr-only', type: 'button', 'data-i18n-aria': 'attract.touch', onclick: function () { start(); } })
     ]);
     var FLOW = ['attract', { width: 64, deform: true, twist: 2.4, spin: 0.5, morph: 1.3, grabRadius: 360 }];
@@ -520,13 +560,14 @@
     function start() {
       if (starting) return;
       starting = true;
-      fil.pulse(); stat('sessions');
-      later(function () { go('hub'); }, 420);
+      fil.pulse(); stat('sessions'); countCommons();
+      if (S.design === 'hybrid') later(function () { lightCurtain(lastPt.x, lastPt.y).then(function () { go('hub'); }); }, 240);
+      else later(function () { go('hub'); }, 420);
     }
     // Den Faden aufnehmen: Er folgt dem Finger, spannt sich und gibt beim Loslassen den Weg frei.
     // Antippen funktioniert genauso (für alle, die nicht ziehen können oder möchten).
     var downAt = null;
-    el.addEventListener('pointerdown', function (e) { downAt = Date.now(); bump(); });
+    el.addEventListener('pointerdown', function (e) { downAt = Date.now(); lastPt = toStage(e); bump(); });
     el.addEventListener('pointermove', function () {
       if (!downAt) return;
       var pulling = fil.grabbed && fil.pullDistance > 50;
@@ -537,7 +578,8 @@
     el.addEventListener('pointerup', up);
     el.addEventListener('pointercancel', function () { downAt = null; el.classList.remove('is-pulling'); setKey(prompt, 'attract.touch'); });
     later(form, 1800);
-    return { el: el, shape: FLOW, onLang: function () { fitText(hook); } };
+    showCommons();
+    return { el: el, shape: FLOW, onLang: function () { fitText(hook); showCommons(); } };
   };
 
   /* =========================================================== 2 · Startseite */
@@ -1325,7 +1367,8 @@
       row('admin.fps', String(fil.fps)),
       [h('dt', { i18n: 'admin.i18n' }), issues ? h('dd', { i18n: 'admin.i18nMissing', vars: { n: issues } }) : h('dd', { i18n: 'admin.i18nOk' })],
       [h('dt', { i18n: 'admin.connection' }), h('dd', { i18n: navigator.onLine ? 'admin.online' : 'admin.offline' })],
-      [h('dt', { i18n: 'admin.stats' }), statsLine]
+      [h('dt', { i18n: 'admin.stats' }), statsLine],
+      [h('dt', { i18n: 'admin.commons' }), h('dd', { i18n: 'admin.commonsLine', vars: { n: fmtNum(commonsRead().n), date: { date: commonsRead().since } } })]
     ));
     var qRow = h('div', { class: 'row' }, ['auto', 'high', 'balanced', 'low'].map(function (q) {
       return h('button', { class: 'btn btn-ghost', type: 'button', 'aria-pressed': String((q === 'auto' && fil.autoQuality) || (!fil.autoQuality && fil.qualityName === q)), onclick: function () {
@@ -1334,7 +1377,7 @@
       } }, [h('span', { i18n: 'admin.q.' + q })]);
     }));
     var reduced = document.body.classList.contains('reduced');
-    var designRow = h('div', { class: 'row' }, DESIGNS.slice().reverse().map(function (v) {
+    var designRow = h('div', { class: 'row' }, ['dark', 'corporate', 'hybrid'].map(function (v) {
       return h('button', { class: 'btn btn-ghost', type: 'button', 'aria-pressed': String(S.design === v), onclick: function () { applyDesign(v, true); openAdmin(); } }, [h('span', { i18n: 'admin.designs.' + v })]);
     }));
     var badge = badgeOn();
@@ -1356,6 +1399,7 @@
       ]),
       h('div', { class: 'row' }, [
         h('button', { class: 'btn btn-ghost', type: 'button', onclick: function () { location.reload(); } }, [h('span', { i18n: 'admin.reload' })]),
+        h('button', { class: 'btn btn-ghost', type: 'button', onclick: function () { storedSet('bne-commons', null); openAdmin(); } }, [h('span', { i18n: 'admin.commonsReset' })]),
         h('button', { class: 'btn btn-ghost', type: 'button', onclick: function () { resetSession(); } }, [h('span', { i18n: 'admin.testReset' })]),
         D.config.stats.enabled ? h('button', { class: 'btn btn-ghost', type: 'button', onclick: function () { try { localStorage.removeItem('bne-stats'); } catch (e) { /* ok */ } openAdmin(); } }, [h('span', { i18n: 'admin.statsReset' })]) : null,
         h('button', { class: 'btn btn-primary', type: 'button', onclick: closeAdmin }, [h('span', { i18n: 'ui.close' })])

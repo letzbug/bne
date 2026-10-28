@@ -1,6 +1,6 @@
 {
   "_info": "Betriebseinstellungen der Stele. Texte: translations.json. Inhalte und Links: content.json. Viele Werte lassen sich zum Testen per URL überschreiben, siehe README.",
-  "version": "2.0.0-demo",
+  "version": "2.1.0-demo",
   "defaultLanguage": "fr",
   "languages": [
     "fr",
@@ -8,8 +8,8 @@
     "en"
   ],
   "design": {
-    "_info": "Designvariante beim Start: 'corporate' (BNE Corporate, hell, Logo-Farben) oder 'dark' (Original Dark). Im Wartungsmenü umschaltbar; die Wahl bleibt auf dem Gerät gespeichert. Zum Testen per URL: ?design=dark",
-    "variant": "corporate"
+    "_info": "Designvariante beim Start: 'hybrid' (Lichtvorhang: dunkles Startbild, nach dem Loslassen des Fadens BNE Corporate), 'corporate' (BNE Corporate) oder 'dark' (Original Dark). Im Wartungsmenü umschaltbar; die Wahl bleibt auf dem Gerät gespeichert. Zum Testen per URL: ?design=dark",
+    "variant": "hybrid"
   },
   "location": {
     "_info": "Name des aktuellen Standorts (z. B. Einkaufszentrum). Leer = nicht anzeigen. Per URL: ?location=Name",
@@ -67,5 +67,10 @@
   "stats": {
     "_info": "Optionale, anonyme Zähler nur auf dem Gerät (keine Personen, keine Zeitstempel einzelner Besuche). Standard: aus.",
     "enabled": false
+  },
+  "commons": {
+    "_info": "Gemeinsamer Faden: zählt anonym, wie oft auf diesem Gerät das Erlebnis gestartet wurde, und zeigt es im Startbild („1 284 personnes ont déjà tiré le fil ici“). Keine Personendaten, keine Zeitstempel einzelner Besuche. minToShow: erst ab dieser Zahl anzeigen. Bei Standortwechsel im Wartungsmenü zurücksetzen.",
+    "enabled": true,
+    "minToShow": 10
   }
 }

@@ -280,7 +280,7 @@ button:focus-visible, .choice:focus-visible { outline: 5px solid var(--glow); ou
 .att-touch .pulse { width: 74px; height: 74px; border-radius: 50%; background: var(--text); position: relative; }
 .att-touch .pulse::before, .att-touch .pulse::after { content: ""; position: absolute; inset: -16px; border-radius: 50%; border: 3px solid var(--text); animation: ring 2.4s ease-out infinite; }
 .att-touch .pulse::after { animation-delay: 1.2s; }
-.att-touch p { font-family: var(--font-display); font-weight: 650; font-size: 38px; transition: opacity .4s; }
+.att-touch p { font-family: var(--font-display); font-weight: 650; font-size: 38px; margin-top: 10px; transition: opacity .4s; }
 .fade-out { opacity: 0 !important; }
 .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw var(--draw, 2.4s) var(--ease-out) forwards; }
 .undraw { animation: undraw .9s ease-in forwards; }

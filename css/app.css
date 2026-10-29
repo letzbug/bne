@@ -561,7 +561,7 @@ body.reduced .draw { animation-duration: .5s !important; }
   color-scheme: light;
 }
 :root[data-design="corporate"] body[data-screen="attract"] #brand-arcs { opacity: 1; }
-#brand-arcs .ring { transform-origin: 540px 760px; animation: spin 90s linear infinite; }
+#brand-arcs .ring { transform-origin: 540px 845px; animation: spin 90s linear infinite; }
 body.reduced #brand-arcs .ring { animation: none; }
 :root[data-design="corporate"] .t-hero, :root[data-design="corporate"] .t-h1, :root[data-design="corporate"] .t-h2 { letter-spacing: -.035em; }
 :root[data-design="corporate"] .t-hero { font-weight: 700; }

@@ -114,7 +114,7 @@
   function brandArcs() {
     // Großer Ring aus den 17 Logo-Segmenten: Bühne für die Faden-Form im Ruhezustand
     var bc = D.content.brandColors, cols = (bc && bc.thread) || sdgList();
-    var cx = 540, cy = 930, r = 430, n = cols.length, span = 360 / n, gap = span * 0.16, html = '';
+    var cx = 540, cy = 885, r = 430, n = cols.length, span = 360 / n, gap = span * 0.16, html = '';
     cols.forEach(function (c, i) {
       var s0 = (-90 + i * span + gap / 2) * Math.PI / 180, s1 = (-90 + (i + 1) * span - gap / 2) * Math.PI / 180;
       html += '<path d="M' + (cx + r * Math.cos(s0)).toFixed(1) + ' ' + (cy + r * Math.sin(s0)).toFixed(1) + ' A' + r + ' ' + r + ' 0 0 1 ' +
